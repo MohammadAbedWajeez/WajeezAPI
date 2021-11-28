@@ -29,6 +29,13 @@
       <type>Main</type>
       <value>application/json</value>
    </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Authorization</name>
+      <type>Main</type>
+      <value>Bearer ${token}</value>
+   </httpHeaderProperties>
    <katalonVersion>8.1.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
@@ -57,18 +64,18 @@
       <name>randomBodyEmail</name>
    </variables>
    <variables>
-      <defaultValue>GlobalVariable.$randomFirstName</defaultValue>
+      <defaultValue>GlobalVariable.randomFirstName</defaultValue>
       <description></description>
       <id>3ec5ed59-34ae-43db-bbd9-167aff10d018</id>
       <masked>false</masked>
-      <name>$randomFirstName</name>
+      <name>randomFirstName</name>
    </variables>
    <variables>
-      <defaultValue>GlobalVariable.$randomFirstName</defaultValue>
+      <defaultValue>GlobalVariable.RegisterUserPassword</defaultValue>
       <description></description>
-      <id>ec3611a9-a7ad-4b3e-ae08-7fa179be5b6e</id>
+      <id>aa3a0384-8f67-4deb-8ea8-afb50b44de6b</id>
       <masked>false</masked>
-      <name>$randomFirstName</name>
+      <name>RegisterUserPassword</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

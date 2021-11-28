@@ -264,4 +264,14 @@
       <initValue>''</initValue>
       <name>PlanName</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>RegisterUserPassword</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>BlockedUserId</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
