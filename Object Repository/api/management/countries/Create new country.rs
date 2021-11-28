@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebServiceRequestEntity>
+   <description></description>
+   <name>Create new country</name>
+   <tag></tag>
+   <elementGuidId>1427e190-a314-4ef2-a736-a4896bb5860d</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <connectionTimeout>-1</connectionTimeout>
+   <followRedirects>false</followRedirects>
+   <httpBody></httpBody>
+   <httpBodyContent>{
+  &quot;text&quot;: &quot;{\r\n  \&quot;name\&quot;: \&quot;${$randomCountry}\&quot;,\r\n  \&quot;twoDigitCode\&quot;: \&quot;${$randomCountryCode}\&quot;,\r\n  \&quot;threeDigitCode\&quot;: \&quot;${$randomCountryCode}\&quot;,\r\n  \&quot;currencyCode\&quot;: \&quot;${$randomCurrencyCode}\&quot;,\r\n  \&quot;region\&quot;: \&quot;${$randomJobArea}\&quot;\r\n}&quot;,
+  &quot;contentType&quot;: &quot;application/json&quot;,
+  &quot;charset&quot;: &quot;UTF-8&quot;
+}</httpBodyContent>
+   <httpBodyType>text</httpBodyType>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Accept-Language</name>
+      <type>Main</type>
+      <value>en</value>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Content-Type</name>
+      <type>Main</type>
+      <value>application/json</value>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name></name>
+      <type>Main</type>
+      <value></value>
+   </httpHeaderProperties>
+   <katalonVersion>8.1.0</katalonVersion>
+   <maxResponseSize>-1</maxResponseSize>
+   <migratedVersion>5.4.1</migratedVersion>
+   <restRequestMethod>POST</restRequestMethod>
+   <restUrl>${baseUrl}/api/management/countries</restUrl>
+   <serviceType>RESTful</serviceType>
+   <soapBody></soapBody>
+   <soapHeader></soapHeader>
+   <soapRequestMethod></soapRequestMethod>
+   <soapServiceEndpoint></soapServiceEndpoint>
+   <soapServiceFunction></soapServiceFunction>
+   <socketTimeout>-1</socketTimeout>
+   <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
+   <variables>
+      <defaultValue>GlobalVariable.baseUrl</defaultValue>
+      <description></description>
+      <id>5e2db741-587d-4670-8a74-ba75a68f5413</id>
+      <masked>false</masked>
+      <name>baseUrl</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.$randomCountry</defaultValue>
+      <description></description>
+      <id>ede4eaeb-95fc-46c9-bb65-ed1c8af1397a</id>
+      <masked>false</masked>
+      <name>$randomCountry</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.$randomCountryCode</defaultValue>
+      <description></description>
+      <id>c095b79f-40b5-4ca1-a12f-8ae20b100120</id>
+      <masked>false</masked>
+      <name>$randomCountryCode</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.$randomCurrencyCode</defaultValue>
+      <description></description>
+      <id>7d243c34-cdc1-4dfd-98ff-c1820f54a214</id>
+      <masked>false</masked>
+      <name>$randomCurrencyCode</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.$randomJobArea</defaultValue>
+      <description></description>
+      <id>881a23ed-6db6-46a5-85a9-1683446d175a</id>
+      <masked>false</masked>
+      <name>$randomJobArea</name>
+   </variables>
+   <wsdlAddress></wsdlAddress>
+</WebServiceRequestEntity>

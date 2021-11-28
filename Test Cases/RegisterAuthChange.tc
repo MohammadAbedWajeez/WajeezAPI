@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>RegisterAuthChange</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>46ec89e3-b28e-41f8-a244-8a580b3ca0b1</testCaseGuid>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>77de5211-cedf-4cbe-87d1-07a2983d48e9</id>
+      <masked>false</masked>
+      <name>regEmail</name>
+   </variable>
+   <variable>
+      <defaultValue>'test1234'</defaultValue>
+      <description></description>
+      <id>d6f9d499-1c43-4993-a593-4bc909e5a4b7</id>
+      <masked>false</masked>
+      <name>regPassword</name>
+   </variable>
+</TestCaseEntity>

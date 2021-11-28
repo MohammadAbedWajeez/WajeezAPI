@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>CompleteAccount</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>8d75c5f4-f5db-4b3d-9c39-16de8b812a93</testCaseGuid>
+   <variable>
+      <defaultValue>GlobalVariable.UserRegisteredID</defaultValue>
+      <description></description>
+      <id>3767fa4f-a44e-43de-b550-81ec60e68607</id>
+      <masked>false</masked>
+      <name>UserRegisteredID</name>
+   </variable>
+   <variable>
+      <defaultValue>GlobalVariable.randomEmail</defaultValue>
+      <description></description>
+      <id>7ca9df83-8bdb-4bb8-b546-e2bcda8f9586</id>
+      <masked>false</masked>
+      <name>SecondRandomEmail</name>
+   </variable>
+</TestCaseEntity>
