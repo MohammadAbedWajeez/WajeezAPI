@@ -116,4 +116,4 @@ def GetUserDetailsUsingUserIdafterResult = GetUserDetailsUsingUserIdafterSlurper
 println(GetUserDetailsUsingUserIdafterResult)
 
 WS.verifyResponseStatusCode(GetUserDetailsUsingUserIdafter, 200)
-
+//wawe update
