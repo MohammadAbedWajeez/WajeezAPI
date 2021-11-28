@@ -117,5 +117,3 @@ println(GetUserDetailsUsingUserIdafterResult)
 
 WS.verifyResponseStatusCode(GetUserDetailsUsingUserIdafter, 200)
 
-
-//git 
