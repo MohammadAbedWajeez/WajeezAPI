@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Authenticate user using Huawei</name>
+   <name>Create new Category content item</name>
    <tag></tag>
-   <elementGuidId>d07d38da-a9f0-40df-be66-addba6e30c87</elementGuidId>
+   <elementGuidId>c6155dcb-d36c-4b88-8473-586ae67613f5</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>-1</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;referralCode\&quot;: \&quot;string\&quot;,\n  \&quot;deviceDetails\&quot;: {\n    \&quot;deviceMaker\&quot;: \&quot;string\&quot;,\n    \&quot;modelName\&quot;: \&quot;string\&quot;,\n    \&quot;operatingSystem\&quot;: \&quot;string\&quot;,\n    \&quot;operatingSystemVersion\&quot;: \&quot;string\&quot;,\n    \&quot;applicationVersion\&quot;: \&quot;string\&quot;\n  },\n  \&quot;token\&quot;: \&quot;string\&quot;,\n  \&quot;uId\&quot;: \&quot;string\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;profiles\&quot;: [\n        {\n            \&quot;languageId\&quot;: 81103463,\n            \&quot;name\&quot;: \&quot;nisi occaecat\&quot;,\n            \&quot;image\&quot;: \&quot;pariatur\&quot;,\n            \&quot;icon\&quot;: \&quot;elit esse consectetur do\&quot;,\n            \&quot;color\&quot;: \&quot;qui esse tempor\&quot;\n        },\n        {\n            \&quot;languageId\&quot;: 84424647,\n            \&quot;name\&quot;: \&quot;Lorem pariatur elit\&quot;,\n            \&quot;image\&quot;: \&quot;laborum cillum\&quot;,\n            \&quot;icon\&quot;: \&quot;amet mollit ad\&quot;,\n            \&quot;color\&quot;: \&quot;incididunt qui\&quot;\n        }\n    ]\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -20,7 +20,21 @@
       <matchCondition>equals</matchCondition>
       <name>Accept-Language</name>
       <type>Main</type>
-      <value>en</value>
+      <value>ar</value>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>x-app-language-id</name>
+      <type>Main</type>
+      <value>tempor commodo sed</value>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>x-app-theme-mode</name>
+      <type>Main</type>
+      <value>Dark</value>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>false</isSelected>
@@ -29,11 +43,11 @@
       <type>Main</type>
       <value>application/json</value>
    </httpHeaderProperties>
-   <katalonVersion>8.1.0</katalonVersion>
+   <katalonVersion>8.2.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>${baseUrl}/api/management/account/authenticate/huawei</restUrl>
+   <restUrl>${baseUrl}/api/management/contentitems/create-category</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -45,22 +59,9 @@
    <variables>
       <defaultValue>GlobalVariable.baseUrl</defaultValue>
       <description></description>
-      <id>7200be7e-6b20-4136-ab66-13fe4d2e3ee2</id>
+      <id>dbad6e82-a27c-4a66-884e-13c10bc1c156</id>
       <masked>false</masked>
       <name>baseUrl</name>
    </variables>
-   <verificationScript>import static org.assertj.core.api.Assertions.*
-
-import com.kms.katalon.core.testobject.RequestObject
-import com.kms.katalon.core.testobject.ResponseObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.webservice.verification.WSResponseManager
-
-import groovy.json.JsonSlurper
-import internal.GlobalVariable as GlobalVariable
-
-RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
-
-ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

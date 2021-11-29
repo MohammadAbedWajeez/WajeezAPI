@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;token\&quot;: \&quot;\u003cstring\u003e\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;referralCode\&quot;: \&quot;string\&quot;,\n  \&quot;deviceDetails\&quot;: {\n    \&quot;deviceMaker\&quot;: \&quot;string\&quot;,\n    \&quot;modelName\&quot;: \&quot;string\&quot;,\n    \&quot;operatingSystem\&quot;: \&quot;string\&quot;,\n    \&quot;operatingSystemVersion\&quot;: \&quot;string\&quot;,\n    \&quot;applicationVersion\&quot;: \&quot;string\&quot;\n  },\n  \&quot;token\&quot;: \&quot;string\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -49,5 +49,18 @@
       <masked>false</masked>
       <name>baseUrl</name>
    </variables>
+   <verificationScript>import static org.assertj.core.api.Assertions.*
+
+import com.kms.katalon.core.testobject.RequestObject
+import com.kms.katalon.core.testobject.ResponseObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webservice.verification.WSResponseManager
+
+import groovy.json.JsonSlurper
+import internal.GlobalVariable as GlobalVariable
+
+RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
+
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

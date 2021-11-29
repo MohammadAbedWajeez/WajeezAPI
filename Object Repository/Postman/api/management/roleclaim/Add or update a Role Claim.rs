@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Check email validity and existence</name>
+   <name>Add or update a Role Claim</name>
    <tag></tag>
-   <elementGuidId>71e2d8f6-6695-43af-96a5-8cb6cb906476</elementGuidId>
+   <elementGuidId>08c240b9-003a-4cad-9fb5-d6e6c3823f22</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>-1</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;&quot;,
-  &quot;contentType&quot;: &quot;text/plain&quot;,
+  &quot;text&quot;: &quot;{\n \&quot;id\&quot;: 3,\n \&quot;roleId\&quot;: \&quot;2f6bef92-60f6-4b24-95db-36dc0f8420e6\&quot;,\n \&quot;type\&quot;: \&quot;\u003cstring\u003e\&quot;,\n \&quot;value\&quot;: \&quot;\u003cstring\u003e\&quot;,\n \&quot;description\&quot;: \&quot;\u003cstring\u003e\&quot;,\n \&quot;selected\&quot;: false\n}&quot;,
+  &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
    <httpBodyType>text</httpBodyType>
-   <httpHeaderProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>Content-Type</name>
-      <type>Main</type>
-      <value>text/plain</value>
-   </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
@@ -29,11 +22,18 @@
       <type>Main</type>
       <value>en</value>
    </httpHeaderProperties>
-   <katalonVersion>8.1.0</katalonVersion>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Content-Type</name>
+      <type>Main</type>
+      <value>application/json</value>
+   </httpHeaderProperties>
+   <katalonVersion>8.2.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
-   <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${baseUrl}/api/management/account/check-email?email=notexist@wawe.com</restUrl>
+   <restRequestMethod>POST</restRequestMethod>
+   <restUrl>${baseUrl}/api/management/roleclaim</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -45,22 +45,9 @@
    <variables>
       <defaultValue>GlobalVariable.baseUrl</defaultValue>
       <description></description>
-      <id>878a41c1-b0a1-4fd8-b167-9adad106b5cd</id>
+      <id>48237b01-ca03-4a48-a9fe-594e7b96d0ae</id>
       <masked>false</masked>
       <name>baseUrl</name>
    </variables>
-   <verificationScript>import static org.assertj.core.api.Assertions.*
-
-import com.kms.katalon.core.testobject.RequestObject
-import com.kms.katalon.core.testobject.ResponseObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.webservice.verification.WSResponseManager
-
-import groovy.json.JsonSlurper
-import internal.GlobalVariable as GlobalVariable
-
-RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
-
-ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

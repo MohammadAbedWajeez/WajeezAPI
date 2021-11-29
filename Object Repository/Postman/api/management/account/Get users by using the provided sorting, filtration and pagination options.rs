@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Check email validity and existence</name>
+   <name>Get users by using the provided sorting, filtration and pagination options</name>
    <tag></tag>
-   <elementGuidId>71e2d8f6-6695-43af-96a5-8cb6cb906476</elementGuidId>
+   <elementGuidId>d02a459f-1a2e-4c90-8847-48db9e79bd38</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>-1</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;&quot;,
-  &quot;contentType&quot;: &quot;text/plain&quot;,
+  &quot;text&quot;: &quot;{\n \&quot;pageNumber\&quot;: 83813739,\n \&quot;pageSize\&quot;: 7493415,\n \&quot;flags\&quot;: 8,\n \&quot;sortingOperations\&quot;: [\n  {\n   \&quot;property\&quot;: 2,\n   \&quot;orderByDirection\&quot;: 1\n  },\n  {\n   \&quot;property\&quot;: 2,\n   \&quot;orderByDirection\&quot;: 1\n  }\n ],\n \&quot;filteringOperations\&quot;: [\n  {\n   \&quot;property\&quot;: 2,\n   \&quot;cretiria\&quot;: \&quot;\u003cstring\u003e\&quot;,\n   \&quot;comparisonType\&quot;: 5\n  },\n  {\n   \&quot;property\&quot;: 32,\n   \&quot;cretiria\&quot;: \&quot;\u003cstring\u003e\&quot;,\n   \&quot;comparisonType\&quot;: 6\n  }\n ],\n \&quot;tablePreferenceId\&quot;: 98470116\n}&quot;,
+  &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
    <httpBodyType>text</httpBodyType>
-   <httpHeaderProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>Content-Type</name>
-      <type>Main</type>
-      <value>text/plain</value>
-   </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
@@ -29,11 +22,18 @@
       <type>Main</type>
       <value>en</value>
    </httpHeaderProperties>
-   <katalonVersion>8.1.0</katalonVersion>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Content-Type</name>
+      <type>Main</type>
+      <value>application/json</value>
+   </httpHeaderProperties>
+   <katalonVersion>8.2.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
-   <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${baseUrl}/api/management/account/check-email?email=notexist@wawe.com</restUrl>
+   <restRequestMethod>POST</restRequestMethod>
+   <restUrl>${baseUrl}/api/management/account/get</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -45,22 +45,9 @@
    <variables>
       <defaultValue>GlobalVariable.baseUrl</defaultValue>
       <description></description>
-      <id>878a41c1-b0a1-4fd8-b167-9adad106b5cd</id>
+      <id>6024d4a8-9328-47cf-8e25-7ef6d4bd943b</id>
       <masked>false</masked>
       <name>baseUrl</name>
    </variables>
-   <verificationScript>import static org.assertj.core.api.Assertions.*
-
-import com.kms.katalon.core.testobject.RequestObject
-import com.kms.katalon.core.testobject.ResponseObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.webservice.verification.WSResponseManager
-
-import groovy.json.JsonSlurper
-import internal.GlobalVariable as GlobalVariable
-
-RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
-
-ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>
