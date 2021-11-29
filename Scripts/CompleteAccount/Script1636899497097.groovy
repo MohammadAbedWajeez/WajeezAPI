@@ -19,33 +19,23 @@ import org.openqa.selenium.Keys as Keys
 
 AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('api/management/account/authenticate/Authenticate user using Email and Password', 
         [('baseUrl') : GlobalVariable.baseUrl]))
-
 def AuthenticateUserUsingEmailAndPasswordSlurper = new groovy.json.JsonSlurper()
-
 def AuthenticateUserUsingEmailAndPasswordResult = AuthenticateUserUsingEmailAndPasswordSlurper.parseText(AuthenticateUserUsingEmailAndPassword.getResponseBodyContent())
-
 def Token = AuthenticateUserUsingEmailAndPasswordResult.data.token
-
 GlobalVariable.token = Token
-
 WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
 
-randomEmail = (('wajeezTest' + ((Math.random() * 100) as int)) + '@wajeez.co')
 
-GlobalVariable.randomEmail = randomEmail
-
+randomBodyEmail = (('wajeezTest' + ((Math.random() * 2000) as int)) + '@wajeez.co')
+GlobalVariable.randomBodyEmail = randomBodyEmail
 randomFirstName = ('TestRegisterUser' + ((Math.random() * 1000) as int))
-
 GlobalVariable.randomFirstName = randomFirstName
 
-RegisterTheUserUusingEmailAndPassword = WS.sendRequestAndVerify(findTestObject('PostmanNew/api/management/account/Register the user using email and password', 
+RegisterTheUserUusingEmailAndPassword = WS.sendRequestAndVerify(findTestObject('api/management/account/user Id/Register the user using email and password', 
         [('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token, ('randomFirstName') : GlobalVariable.randomFirstName
-            , ('randomEmail') : GlobalVariable.randomEmail]))
-
+            , ('randomBodyEmail') : GlobalVariable.randomBodyEmail]))
 def RegisterTheUserUusingEmailAndPasswordSlurper = new groovy.json.JsonSlurper()
-
 def RegisterTheUserUusingEmailAndPasswordResult = RegisterTheUserUusingEmailAndPasswordSlurper.parseText(RegisterTheUserUusingEmailAndPassword.getResponseBodyContent())
-
 println(RegisterTheUserUusingEmailAndPasswordResult)
 
 //def UserRegisteredID = RegisterTheUserUusingEmailAndPasswordResult.data.id
@@ -60,54 +50,44 @@ println(RegisterTheUserUusingEmailAndPasswordResult)
 
 WS.verifyResponseStatusCode(RegisterTheUserUusingEmailAndPassword, 200)
 
-CheckEmailValidityAndExistenceEmailExist = WS.sendRequest(findTestObject('PostmanNew/api/management/account/Check email validity and existence', 
+CheckEmailValidityAndExistenceEmailExist = WS.sendRequest(findTestObject('api/management/account/token/Check email validity and existence', 
         [('baseUrl') : GlobalVariable.baseUrl, ('SuperAdmin@wajeez.co') : GlobalVariable.EmailValidity]))
 
-WS.verifyResponseStatusCode(CheckEmailValidityAndExistenceEmailExist, 400)
-
-
+WS.verifyResponseStatusCode(CheckEmailValidityAndExistenceEmailExist, 200)
 RandomSuperEmail = (('wajeezTest' + ((Math.random() * 900) as int)) + '@wajeez.co')
 
 GlobalVariable.RandomSuperEmail = RandomSuperEmail
 
 def CreateAdminUsingemailAndPassword = WS.sendRequest(findTestObject('api/management/account/Create admin using email and password', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('RandomSuperEmail') : GlobalVariable.RandomSuperEmail, ('token') : GlobalVariable.token]))
-
+        [('baseUrl') : GlobalVariable.baseUrl, ('RandomSuperEmail') : GlobalVariable.RandomSuperEmail,
+			 ('randomFirstName') : GlobalVariable.randomFirstName, ('token') : GlobalVariable.token]))
 def CreateAdminUsingemailAndPasswordSlurper = new groovy.json.JsonSlurper()
 def CreateAdminUsingemailAndPasswordResult = CreateAdminUsingemailAndPasswordSlurper.parseText(CreateAdminUsingemailAndPassword.getResponseBodyContent())
 println(CreateAdminUsingemailAndPasswordResult)
 WS.verifyResponseStatusCode(CreateAdminUsingemailAndPassword, 200)
 
+
+
+//def CreateAdminUsingemailAndPasswordSlurper = new groovy.json.JsonSlurper()
+//def CreateAdminUsingemailAndPasswordResult = CreateAdminUsingemailAndPasswordSlurper.parseText(CreateAdminUsingemailAndPassword.getResponseBodyContent())
+//println(CreateAdminUsingemailAndPasswordResult)
+//WS.verifyResponseStatusCode(CreateAdminUsingemailAndPassword, 200)
+//
 //def SecondAdminID = CreateAdminUsingemailAndPasswordResult.data.id
 //def SecondAdminToken = CreateAdminUsingemailAndPasswordResult.data.token
 //println(CreateAdminUsingemailAndPasswordResult)
 //GlobalVariable.SecondAdminToken = SecondAdminToken
 //GlobalVariable.SecondAdminID = SecondAdminID
-
-
-
-
-//
-//
 //ChangeTheEmailOfTheCurrentUser = WS.sendRequest(findTestObject('api/management/account/Change the email of the current user', 
 //        [('baseUrl') : GlobalVariable.baseUrl, ('UserRegisteredToken') : GlobalVariable.UserRegisteredToken, ('SecondRandomEmail') : GlobalVariable.randomEmail]))
-//
 //def ChangeTheEmailOfTheCurrentUserSlurper = new groovy.json.JsonSlurper()
-//
 //def ChangeTheEmailOfTheCurrentUserResult = ChangeTheEmailOfTheCurrentUserSlurper.parseText(ChangeTheEmailOfTheCurrentUser.getResponseBodyContent())
-//
 //println(ChangeTheEmailOfTheCurrentUserResult)
-//
 //WS.verifyResponseStatusCode(ChangeTheEmailOfTheCurrentUser, 200)
-//
 //SoftDeletionOfTheCurrentUser = WS.sendRequest(findTestObject('PostmanNew/api/management/account/Soft deletion of the current user', 
 //        [('baseUrl') : GlobalVariable.baseUrl, ('UserRegisteredToken') : GlobalVariable.UserRegisteredToken, ('UserRegisteredID') : GlobalVariable.UserRegisteredID]))
-//
 //def SoftDeletionOfTheCurrentUserSlurper = new groovy.json.JsonSlurper()
-//
 //def SoftDeletionOfTheCurrentUserResult = SoftDeletionOfTheCurrentUserSlurper.parseText(SoftDeletionOfTheCurrentUser.getResponseBodyContent())
-//
 //println(SoftDeletionOfTheCurrentUserResult)
-//
 //WS.verifyResponseStatusCode(SoftDeletionOfTheCurrentUser, 200)
-//
+

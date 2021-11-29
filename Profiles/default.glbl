@@ -81,7 +81,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>0</initValue>
+      <initValue>''</initValue>
       <name>CountryID</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -273,5 +273,15 @@
       <description></description>
       <initValue>''</initValue>
       <name>BlockedUserId</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>randomCountryCode2</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>randomCountryCode3</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;profiles\&quot;: [\n        {\n            \&quot;languageVariantId\&quot;: 63848390,\n            \&quot;name\&quot;: \&quot;velit aute eiusmod exercitation\&quot;,\n            \&quot;description\&quot;: \&quot;officia irure\&quot;\n        },\n        {\n            \&quot;languageVariantId\&quot;: -84158234,\n            \&quot;name\&quot;: \&quot;laborum sint commodo eu ea\&quot;,\n            \&quot;description\&quot;: \&quot;velit sit\&quot;\n        }\n    ],\n    \&quot;contentItemTypeId\&quot;: -14748917\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;profiles\&quot;: [\n    {\n      \&quot;languageId\&quot;: 0,\n      \&quot;title\&quot;: \&quot;string\&quot;,\n      \&quot;subtitle\&quot;: \&quot;string\&quot;,\n      \&quot;about\&quot;: \&quot;string\&quot;,\n      \&quot;shortDescription\&quot;: \&quot;string\&quot;,\n      \&quot;targetAudiance\&quot;: \&quot;string\&quot;,\n      \&quot;aboutAuthors\&quot;: \&quot;string\&quot;\n    }\n  ]\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -70,5 +70,18 @@
       <masked>false</masked>
       <name>baseUrl</name>
    </variables>
+   <verificationScript>import static org.assertj.core.api.Assertions.*
+
+import com.kms.katalon.core.testobject.RequestObject
+import com.kms.katalon.core.testobject.ResponseObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webservice.verification.WSResponseManager
+
+import groovy.json.JsonSlurper
+import internal.GlobalVariable as GlobalVariable
+
+RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
+
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

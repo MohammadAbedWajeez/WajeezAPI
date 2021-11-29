@@ -28,7 +28,8 @@ def Token = result.data.token
 
 GlobalVariable.token = Token
 
-WS.sendRequestAndVerify(findTestObject('PostmanNew/api/management/account/Check email validity and existence', [('baseUrl') : GlobalVariable.baseUrl]))
+CheckEmailValidity = WS.sendRequestAndVerify(findTestObject('api/management/account/token/Check email validity and existence', [('baseUrl') : GlobalVariable.baseUrl]))
 
+WS.verifyResponseStatusCode(CheckEmailValidity, 200)
 
 

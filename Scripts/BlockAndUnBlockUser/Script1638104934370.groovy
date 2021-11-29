@@ -41,7 +41,7 @@ RegisterUserPassword = ('Password' + ((Math.random() * 1000) as int))
 
 GlobalVariable.RegisterUserPassword = RegisterUserPassword
 
-RegisterTheUserUsingEmailAndPassword = WS.sendRequest(findTestObject('api/management/account/{user Id}/Register the user using email and password', 
+RegisterTheUserUsingEmailAndPassword = WS.sendRequest(findTestObject('api/management/account/user Id/Register the user using email and password', 
         [('baseUrl') : GlobalVariable.baseUrl, ('randomBodyEmail') : GlobalVariable.randomBodyEmail, ('randomFirstName') : GlobalVariable.randomFirstName
             , ('RegisterUserPassword') : GlobalVariable.RegisterUserPassword]))
 
@@ -69,9 +69,7 @@ BlockForTheRequestedUser = WS.sendRequest(findTestObject('api/management/account
         [('baseUrl') : GlobalVariable.baseUrl, ('UserRegisteredID') : GlobalVariable.UserRegisteredID, ('token') : GlobalVariable.token]))
 
 def BlockForTheRequestedUserslurper = new groovy.json.JsonSlurper()
-
 def BlockForTheRequestedUserresult = BlockForTheRequestedUserslurper.parseText(BlockForTheRequestedUser.getResponseBodyContent())
-
 println(BlockForTheRequestedUserresult)
 
 WS.verifyResponseStatusCode(BlockForTheRequestedUser, 200)
@@ -80,7 +78,7 @@ WS.verifyResponseStatusCode(BlockForTheRequestedUser, 200)
 
 
 
-GetUserDetailsUsingUserId = WS.sendRequest(findTestObject('api/management/account/{user Id}/Get user details using his id', 
+GetUserDetailsUsingUserId = WS.sendRequest(findTestObject('api/management/account/user Id/Get user details using his id', 
         [('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token, ('UserRegisteredID') : GlobalVariable.UserRegisteredID]))
 def GetUserDetailsUsingUserIdSlurper = new groovy.json.JsonSlurper()
 
@@ -107,7 +105,7 @@ println(UnBlockForTheRequestedUserResult)
 WS.verifyResponseStatusCode(UnBlockForTheRequestedUser, 200)
 
 
-GetUserDetailsUsingUserIdafter = WS.sendRequest(findTestObject('api/management/account/{user Id}/Get user details using his id',
+GetUserDetailsUsingUserIdafter = WS.sendRequest(findTestObject('api/management/account/user Id/Get user details using his id',
 	[('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token, ('UserRegisteredID') : GlobalVariable.UserRegisteredID]))
 def GetUserDetailsUsingUserIdafterSlurper = new groovy.json.JsonSlurper()
 

@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\r\n  \&quot;name\&quot;: \&quot;${$randomCountry}\&quot;,\r\n  \&quot;twoDigitCode\&quot;: \&quot;${$randomCountryCode}\&quot;,\r\n  \&quot;threeDigitCode\&quot;: \&quot;${$randomCountryCode}\&quot;,\r\n  \&quot;currencyCode\&quot;: \&quot;${$randomCurrencyCode}\&quot;,\r\n  \&quot;region\&quot;: \&quot;${$randomJobArea}\&quot;\r\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;name\&quot;: \&quot;${CountryName}\&quot;,\n  \&quot;twoDigitCode\&quot;: \&quot;${randomCountryCode2}\&quot;,\n  \&quot;threeDigitCode\&quot;: \&quot;${randomCountryCode3}\&quot;,\n  \&quot;currencyCode\&quot;: \&quot;${randomCurrencyCode}\&quot;,\n  \&quot;region\&quot;: \&quot;${CountryRegion}\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -32,9 +32,9 @@
    <httpHeaderProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name></name>
+      <name>Authorization</name>
       <type>Main</type>
-      <value></value>
+      <value>Bearer ${token}</value>
    </httpHeaderProperties>
    <katalonVersion>8.1.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
@@ -57,32 +57,52 @@
       <name>baseUrl</name>
    </variables>
    <variables>
-      <defaultValue>GlobalVariable.$randomCountry</defaultValue>
+      <defaultValue>GlobalVariable.CountryName</defaultValue>
       <description></description>
-      <id>ede4eaeb-95fc-46c9-bb65-ed1c8af1397a</id>
+      <id>5126ca8e-cdcc-45ef-9086-4628a3a8cf49</id>
       <masked>false</masked>
-      <name>$randomCountry</name>
+      <name>CountryName</name>
    </variables>
    <variables>
-      <defaultValue>GlobalVariable.$randomCountryCode</defaultValue>
+      <defaultValue>GlobalVariable.CountryRegion</defaultValue>
       <description></description>
-      <id>c095b79f-40b5-4ca1-a12f-8ae20b100120</id>
+      <id>7be6b6b6-8ec4-42d0-b182-02699d604e04</id>
       <masked>false</masked>
-      <name>$randomCountryCode</name>
+      <name>CountryRegion</name>
    </variables>
    <variables>
-      <defaultValue>GlobalVariable.$randomCurrencyCode</defaultValue>
+      <defaultValue>GlobalVariable.randomCurrencyCode</defaultValue>
       <description></description>
-      <id>7d243c34-cdc1-4dfd-98ff-c1820f54a214</id>
+      <id>5547b938-15b7-4997-87bd-d97bc0fc41d7</id>
       <masked>false</masked>
-      <name>$randomCurrencyCode</name>
+      <name>randomCurrencyCode</name>
    </variables>
    <variables>
-      <defaultValue>GlobalVariable.$randomJobArea</defaultValue>
+      <defaultValue>GlobalVariable.randomCountryCode2</defaultValue>
       <description></description>
-      <id>881a23ed-6db6-46a5-85a9-1683446d175a</id>
+      <id>0f1df698-a0f1-4aa7-b1a0-68b9a2d347cf</id>
       <masked>false</masked>
-      <name>$randomJobArea</name>
+      <name>randomCountryCode2</name>
    </variables>
+   <variables>
+      <defaultValue>GlobalVariable.randomCountryCode3</defaultValue>
+      <description></description>
+      <id>cddc8cd5-fdca-40e7-b2a9-e02ba1db6aee</id>
+      <masked>false</masked>
+      <name>randomCountryCode3</name>
+   </variables>
+   <verificationScript>import static org.assertj.core.api.Assertions.*
+
+import com.kms.katalon.core.testobject.RequestObject
+import com.kms.katalon.core.testobject.ResponseObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webservice.verification.WSResponseManager
+
+import groovy.json.JsonSlurper
+import internal.GlobalVariable as GlobalVariable
+
+RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
+
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>
