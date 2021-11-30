@@ -81,7 +81,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>''</initValue>
+      <initValue>0</initValue>
       <name>CountryID</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -102,7 +102,7 @@
    <GlobalVariableEntity>
       <description></description>
       <initValue>''</initValue>
-      <name>randomProductName</name>
+      <name>RandomProductName</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>

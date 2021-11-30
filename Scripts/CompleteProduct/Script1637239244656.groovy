@@ -34,37 +34,34 @@ GlobalVariable.token = Token
 
 WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
 
-GetAllProducts = WS.sendRequestAndVerify(findTestObject('PostmanOld/api/management/products/Get All Products', [('baseUrl') : GlobalVariable.baseUrl
-            , ('token') : GlobalVariable.token]))
+/////////////////////////////////////////////////////////////////
 
+GetAllProducts = WS.sendRequestAndVerify(findTestObject('api/management/products/Get All Products', [('baseUrl') : GlobalVariable.baseUrl
+            , ('token') : GlobalVariable.token]))
 WS.verifyResponseStatusCode(GetAllProducts, 200)
 
-CreateNewProduct = WS.sendRequestAndVerify(findTestObject('PostmanOld/api/management/products/Create New Product', [('baseUrl') : GlobalVariable.baseUrl
-            , ('token') : GlobalVariable.token]))
-
+/////////////////////////////////////////////////////////////////
+RandomProductName = ('Product' + ((Math.random() * 10) as int))
+GlobalVariable.RandomProductName = RandomProductName
+CreateNewProduct = WS.sendRequestAndVerify(findTestObject('api/management/products/Create New Product', [('baseUrl') : GlobalVariable.baseUrl
+            , ('token') : GlobalVariable.token, ('RandomProductName') : GlobalVariable.RandomProductName]))
 def CreateNewProductSlurper = new groovy.json.JsonSlurper()
-
 def CreateNewProductResult = CreateNewProductSlurper.parseText(CreateNewProduct.getResponseBodyContent())
-
 println(CreateNewProductResult)
-
+def ProductID = CreateNewProductResult.data.id
+GlobalVariable.ProductID = ProductID
+def ProductPlanId = CreateNewProductResult.data.planId
+GlobalVariable.ProductPlanId = ProductPlanId
 WS.verifyResponseStatusCode(CreateNewProduct, 200)
 
-def ProductId = CreateNewProductResult.data.id
-
-GlobalVariable.ProductID = ProductId
-
-def ProductPlanId = CreateNewProductResult.data.planId
-
-GlobalVariable.ProductPlanId = ProductPlanId
-
-EditProduct = WS.sendRequestAndVerify(findTestObject('PostmanOld/api/management/products/Edit Product by product ID and plan ID', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('ProductId') : GlobalVariable.ProductID, ('ProductPlanId') : GlobalVariable.ProductPlanId
+/////////////////////////////////////////////////////////////////
+EditProduct = WS.sendRequestAndVerify(findTestObject('api/management/products/Edit Product by product ID and plan ID', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('ProductID') : GlobalVariable.ProductID, ('ProductPlanId') : GlobalVariable.ProductPlanId
             , ('token') : GlobalVariable.token]))
-
 WS.verifyResponseStatusCode(EditProduct, 200)
 
-GetProductById = WS.sendRequestAndVerify(findTestObject('PostmanOld/api/management/products/Get pProducts By Plan ID', [('baseUrl') : GlobalVariable.baseUrl, ('ProductPlanId') : GlobalVariable.ProductPlanId, ('token') : GlobalVariable.token]))
+/////////////////////////////////////////////////////////////////
+GetProductById = WS.sendRequestAndVerify(findTestObject('api/management/products/Get pProducts By Plan ID', [('baseUrl') : GlobalVariable.baseUrl, ('ProductPlanId') : GlobalVariable.ProductPlanId, ('token') : GlobalVariable.token]))
 def GetProductByIdSlurper = new groovy.json.JsonSlurper()
 
 def GetProductByIdResult = GetProductByIdSlurper.parseText(GetProductById.getResponseBodyContent())

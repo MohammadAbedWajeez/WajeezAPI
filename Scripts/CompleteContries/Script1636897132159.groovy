@@ -41,9 +41,6 @@ countryRegion = ('AU' + ((Math.random() * 100) as int))
 
 GlobalVariable.CountryRegion = countryRegion
 
-countryID = ('AU' + ((Math.random() * 100) as int))
-
-GlobalVariable.CountryID = countryID
 
 randomCountryCode2 = ('CC' + ((Math.random() * 10) as int))
 
@@ -75,6 +72,15 @@ WS.verifyResponseStatusCode(CreateNewCountry, 200)
 ///////////////////////////////////////////////////////////
 GetAllCountries = WS.sendRequest(findTestObject('api/management/countries/Get all countries', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
+def GetAllCountriesSlurper = new groovy.json.JsonSlurper()
+
+def GetAllCountriesResult = GetAllCountriesSlurper.parseText(GetAllCountries.getResponseBodyContent())
+countryID = GetAllCountriesResult.data.id[200]
+
+GlobalVariable.CountryID = countryID
+
+println(GetAllCountriesResult)
+println(countryID)
 
 WS.verifyResponseStatusCode(GetAllCountries, 200)
 
