@@ -69,4 +69,3 @@ def GetProductByIdResult = GetProductByIdSlurper.parseText(GetProductById.getRes
 println(GetProductByIdResult)
 
 WS.verifyResponseStatusCode(GetProductById, 200)
-//abd update 
