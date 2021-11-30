@@ -30,7 +30,7 @@ GlobalVariable.token = Token
 
 WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
 
-GetAllLanguages = WS.sendRequestAndVerify(findTestObject('PostmanOld/api/management/languages/Get all languages', [('baseUrl') : GlobalVariable.baseUrl
+GetAllLanguages = WS.sendRequestAndVerify(findTestObject('api/management/languages/Get all languages', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
 
 WS.verifyResponseStatusCode(GetAllLanguages, 200)
@@ -39,7 +39,7 @@ LanguageName = ('Language' + ((Math.random() * 100) as int))
 
 GlobalVariable.LanguageName = LanguageName
 
-CreateNewLanguage = WS.sendRequest(findTestObject('PostmanOld/api/management/languages/Create new language', [('baseUrl') : GlobalVariable.baseUrl
+CreateNewLanguage = WS.sendRequest(findTestObject('api/management/languages/Create new language', [('baseUrl') : GlobalVariable.baseUrl
             , ('LanguageName') : GlobalVariable.LanguageName, ('token') : GlobalVariable.token]))
 
 //WS.verifyResponseStatusCode(CreateNewLanguage, 200)
@@ -52,7 +52,7 @@ def EditLanguageName = CreateNewLanguageResult.data.name
 
 GlobalVariable.EditLanguageName = EditLanguageName
 
-EditLanguage = WS.sendRequest(findTestObject('PostmanOld/api/management/languages/Edit language', [('baseUrl') : GlobalVariable.baseUrl
+EditLanguage = WS.sendRequest(findTestObject('api/management/languages/Edit language', [('baseUrl') : GlobalVariable.baseUrl
             , ('EditLanguageName') : GlobalVariable.EditLanguageName, ('token') : GlobalVariable.token]))
 
 def EditLanguageSlurper = new groovy.json.JsonSlurper()

@@ -25,11 +25,12 @@ def AuthenticateUserUsingEmailAndPasswordSlurper = new groovy.json.JsonSlurper()
 def AuthenticateUserUsingEmailAndPasswordResult = AuthenticateUserUsingEmailAndPasswordSlurper.parseText(AuthenticateUserUsingEmailAndPassword.getResponseBodyContent())
 
 def Token = AuthenticateUserUsingEmailAndPasswordResult.data.token
+
 GlobalVariable.token = Token
+
 WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
 
-
-
+///////////////////////////////////////////////////////////
 GetAllPlanGroups = WS.sendRequestAndVerify(findTestObject('api/management/PlanGroup/GetAllPlanGroups', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
 
@@ -41,10 +42,7 @@ println(GetAllPlanGroupsResult)
 
 WS.verifyResponseStatusCode(GetAllPlanGroups, 200)
 
-
-
-
-
+///////////////////////////////////////////////////////////
 def PlanGroupId = GetAllPlanGroupsResult.data[2].id
 
 println(PlanGroupId)
@@ -66,8 +64,7 @@ println(CreateNewPlanResult)
 
 WS.verifyResponseStatusCode(CreateNewPlan, 200)
 
-
-
+///////////////////////////////////////////////////////////
 GetAllPlans = WS.sendRequestAndVerify(findTestObject('api/management/plans/GetAllPlans', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
 
@@ -85,22 +82,29 @@ println(PlanId)
 
 WS.verifyResponseStatusCode(GetAllPlans, 200)
 
+///////////////////////////////////////////////////////////
+
+GetPlanById = WS.sendRequestAndVerify(findTestObject('api/management/plans/Get plan by id', [('baseUrl') : GlobalVariable.baseUrl
+            , ('PlanId') : GlobalVariable.PlanID, ('token') : GlobalVariable.token]))
+def GetPlanByIdSlurper = new groovy.json.JsonSlurper()
+def GetPlanByIdResult = GetPlanByIdSlurper.parseText(GetPlanById.getResponseBodyContent())
+println(GetPlanByIdResult)
+WS.verifyResponseStatusCode(GetPlanById, 200)
+
+///////////////////////////////////////////////////////////
 EditExistingPlan = WS.sendRequestAndVerify(findTestObject('api/management/plans/EditExistingPlan', [('baseUrl') : GlobalVariable.baseUrl
             , ('PlanId') : GlobalVariable.PlanID, ('PlanName') : GlobalVariable.PlanName, ('PlanGroupId') : GlobalVariable.PlanGroupId
             , ('token') : GlobalVariable.token]))
 
 def EditExistingPlanSlurper = new groovy.json.JsonSlurper()
-
 def EditExistingPlanResult = EditExistingPlanSlurper.parseText(EditExistingPlan.getResponseBodyContent())
-
 println(EditExistingPlanResult)
 
 WS.verifyResponseStatusCode(EditExistingPlan, 200)
 
-
-
-DeletePlan = WS.sendRequestAndVerify(findTestObject('api/management/plans/DeletePlan', [('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token
-            , ('PlanId') : GlobalVariable.PlanID]))
+/////////////////////////////////////////////////////////////
+DeletePlan = WS.sendRequestAndVerify(findTestObject('api/management/plans/DeletePlan', [('baseUrl') : GlobalVariable.baseUrl
+            , ('token') : GlobalVariable.token, ('PlanId') : GlobalVariable.PlanID]))
 
 WS.verifyResponseStatusCode(DeletePlan, 200)
 
