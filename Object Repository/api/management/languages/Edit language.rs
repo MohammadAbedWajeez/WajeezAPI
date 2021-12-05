@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\r\n  \&quot;id\&quot;: ${LanguageCode},\r\n  \&quot;name\&quot;: \&quot;${LanguageName}\&quot;,\r\n  \&quot;languageCode\&quot;: \&quot;${LanguageCode}\&quot;,\r\n  \&quot;isRTL\&quot;: true\r\n}   &quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;id\&quot;: ${LanguageCode},\n  \&quot;name\&quot;: \&quot;${LanguageName}\&quot;,\n  \&quot;languageCode\&quot;: \&quot;${LanguageCode}\&quot;,\n  \&quot;isRTL\&quot;: true\n}   &quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -28,6 +28,13 @@
       <name>Content-Type</name>
       <type>Main</type>
       <value>application/json</value>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Authorization</name>
+      <type>Main</type>
+      <value>Bearer ${token}</value>
    </httpHeaderProperties>
    <katalonVersion>8.1.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
@@ -63,5 +70,18 @@
       <masked>false</masked>
       <name>LanguageName</name>
    </variables>
+   <verificationScript>import static org.assertj.core.api.Assertions.*
+
+import com.kms.katalon.core.testobject.RequestObject
+import com.kms.katalon.core.testobject.ResponseObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webservice.verification.WSResponseManager
+
+import groovy.json.JsonSlurper
+import internal.GlobalVariable as GlobalVariable
+
+RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
+
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

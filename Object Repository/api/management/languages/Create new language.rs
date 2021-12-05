@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\r\n  \&quot;name\&quot;: \&quot;${$randomCountry}\&quot;,\r\n  \&quot;languageCode\&quot;: \&quot;${$randomLocale}\&quot;,\r\n  \&quot;isRTL\&quot;: true\r\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;name\&quot;: \&quot;${LanguageName}\&quot;,\n  \&quot;languageCode\&quot;: \&quot;${LanguageCode}\&quot;,\n  \&quot;isRTL\&quot;: true\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -32,9 +32,9 @@
    <httpHeaderProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name></name>
+      <name>Authorization</name>
       <type>Main</type>
-      <value></value>
+      <value>Bearer ${token}</value>
    </httpHeaderProperties>
    <katalonVersion>8.1.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
@@ -57,18 +57,31 @@
       <name>baseUrl</name>
    </variables>
    <variables>
-      <defaultValue>GlobalVariable.$randomCountry</defaultValue>
+      <defaultValue>GlobalVariable.LanguageName</defaultValue>
       <description></description>
-      <id>59d95312-badc-413e-b76b-7bd8d28691b3</id>
+      <id>c905178a-97aa-40b7-9c2a-166197155f43</id>
       <masked>false</masked>
-      <name>$randomCountry</name>
+      <name>LanguageName</name>
    </variables>
    <variables>
-      <defaultValue>GlobalVariable.$randomLocale</defaultValue>
+      <defaultValue>GlobalVariable.LanguageCode</defaultValue>
       <description></description>
-      <id>92af95e0-91d2-4fbb-b120-bd51673e50e0</id>
+      <id>d20cac56-3e2d-45e3-989f-fdc4d0e9cb68</id>
       <masked>false</masked>
-      <name>$randomLocale</name>
+      <name>LanguageCode</name>
    </variables>
+   <verificationScript>import static org.assertj.core.api.Assertions.*
+
+import com.kms.katalon.core.testobject.RequestObject
+import com.kms.katalon.core.testobject.ResponseObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webservice.verification.WSResponseManager
+
+import groovy.json.JsonSlurper
+import internal.GlobalVariable as GlobalVariable
+
+RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
+
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

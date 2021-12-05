@@ -30,19 +30,27 @@ GlobalVariable.token = Token
 
 WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
 
+///////////////////////////////////////////////////////////////////
+
 GetAllLanguages = WS.sendRequestAndVerify(findTestObject('api/management/languages/Get all languages', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
 
 WS.verifyResponseStatusCode(GetAllLanguages, 200)
 
+///////////////////////////////////////////////////////////////////
+
 LanguageName = ('Language' + ((Math.random() * 100) as int))
 
 GlobalVariable.LanguageName = LanguageName
 
-CreateNewLanguage = WS.sendRequest(findTestObject('api/management/languages/Create new language', [('baseUrl') : GlobalVariable.baseUrl
-            , ('LanguageName') : GlobalVariable.LanguageName, ('token') : GlobalVariable.token]))
+LanguageCode = ('LA' + ((Math.random() * 100) as int))
 
-//WS.verifyResponseStatusCode(CreateNewLanguage, 200)
+GlobalVariable.LanguageCode = LanguageCode
+
+
+CreateNewLanguage = WS.sendRequest(findTestObject('api/management/languages/Create new language', [('baseUrl') : GlobalVariable.baseUrl
+            , ('LanguageName') : GlobalVariable.LanguageName, ('LanguageCode') : GlobalVariable.LanguageCode, ('token') : GlobalVariable.token]))
+
 
 def CreateNewLanguageSlurper = new groovy.json.JsonSlurper()
 
@@ -51,6 +59,11 @@ def CreateNewLanguageResult = CreateNewLanguageSlurper.parseText(CreateNewLangua
 def EditLanguageName = CreateNewLanguageResult.data.name
 
 GlobalVariable.EditLanguageName = EditLanguageName
+
+println(CreateNewLanguageResult)
+WS.verifyResponseStatusCode(CreateNewLanguage, 200)
+
+///////////////////////////////////////////////////////////////////
 
 EditLanguage = WS.sendRequest(findTestObject('api/management/languages/Edit language', [('baseUrl') : GlobalVariable.baseUrl
             , ('EditLanguageName') : GlobalVariable.EditLanguageName, ('token') : GlobalVariable.token]))
