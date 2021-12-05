@@ -10,16 +10,11 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;parameters&quot;: [
-    {
-      &quot;name&quot;: &quot;Profiles&quot;,
-      &quot;value&quot;: &quot;[{\&quot;languageId\&quot;:-6644712,\&quot;type\&quot;:0,\&quot;text\&quot;:\&quot;ipsum aliquip dolore cupidatat\&quot;,\&quot;audio\&quot;:\&quot;dolore\&quot;},{\&quot;languageId\&quot;:98040984,\&quot;type\&quot;:2,\&quot;text\&quot;:\&quot;do\&quot;,\&quot;audio\&quot;:\&quot;aliqua velit sed\&quot;}]&quot;,
-      &quot;type&quot;: &quot;text&quot;,
-      &quot;contentType&quot;: &quot;&quot;
-    }
-  ]
+  &quot;text&quot;: &quot;{\n  \&quot;languageId\&quot;: ,\n  \&quot;type\&quot;: 1,\n  \&quot;text\&quot;: \&quot;test book content\&quot;,\n  \&quot;audio\&quot;: \&quot;test book content\&quot;\n}&quot;,
+  &quot;contentType&quot;: &quot;application/json&quot;,
+  &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
-   <httpBodyType>form-data</httpBodyType>
+   <httpBodyType>text</httpBodyType>
    <httpHeaderProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
@@ -46,7 +41,14 @@
       <matchCondition>equals</matchCondition>
       <name>Content-Type</name>
       <type>Main</type>
-      <value>multipart/form-data</value>
+      <value>application/json</value>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Authorization</name>
+      <type>Main</type>
+      <value>Bearer ${token}</value>
    </httpHeaderProperties>
    <katalonVersion>8.2.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
@@ -68,5 +70,18 @@
       <masked>false</masked>
       <name>baseUrl</name>
    </variables>
+   <verificationScript>import static org.assertj.core.api.Assertions.*
+
+import com.kms.katalon.core.testobject.RequestObject
+import com.kms.katalon.core.testobject.ResponseObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webservice.verification.WSResponseManager
+
+import groovy.json.JsonSlurper
+import internal.GlobalVariable as GlobalVariable
+
+RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
+
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

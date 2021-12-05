@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;profiles\&quot;: [\n        {\n            \&quot;languageId\&quot;: -51918307,\n            \&quot;name\&quot;: \&quot;esse officia id ut\&quot;,\n            \&quot;image\&quot;: \&quot;reprehenderit mollit do\&quot;,\n            \&quot;description\&quot;: \&quot;quis aliqua eu dolore\&quot;\n        },\n        {\n            \&quot;languageId\&quot;: 73635639,\n            \&quot;name\&quot;: \&quot;esse cupidatat laboris eiusmod\&quot;,\n            \&quot;image\&quot;: \&quot;qui ut\&quot;,\n            \&quot;description\&quot;: \&quot;qui cons\&quot;\n        }\n    ]\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;profiles\&quot;: [\n    {\n      \&quot;languageId\&quot;: 50,\n      \&quot;name\&quot;: \&quot;PodcastHub\&quot;,\n      \&quot;image\&quot;: \&quot;PodcastHub\&quot;,\n      \&quot;description\&quot;: \&quot;PodcastHub\&quot;\n    }\n  ]\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -43,6 +43,13 @@
       <type>Main</type>
       <value>application/json</value>
    </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Authorization</name>
+      <type>Main</type>
+      <value>Bearer ${token}</value>
+   </httpHeaderProperties>
    <katalonVersion>8.2.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
@@ -63,5 +70,18 @@
       <masked>false</masked>
       <name>baseUrl</name>
    </variables>
+   <verificationScript>import static org.assertj.core.api.Assertions.*
+
+import com.kms.katalon.core.testobject.RequestObject
+import com.kms.katalon.core.testobject.ResponseObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webservice.verification.WSResponseManager
+
+import groovy.json.JsonSlurper
+import internal.GlobalVariable as GlobalVariable
+
+RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
+
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

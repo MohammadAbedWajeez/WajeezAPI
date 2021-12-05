@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;profiles\&quot;: [\n    {\n      \&quot;languageId\&quot;: 2,\n      \&quot;title\&quot;: \&quot;testbookcontent\&quot;,\n      \&quot;subtitle\&quot;: \&quot;no sub\&quot;,\n      \&quot;about\&quot;: \&quot;test\&quot;,\n      \&quot;shortDescription\&quot;: \&quot;test\&quot;,\n      \&quot;targetAudiance\&quot;: \&quot;test\&quot;,\n      \&quot;aboutAuthors\&quot;: \&quot;test\&quot;\n    }\n  ]\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;profiles\&quot;: [\n    {\n      \&quot;languageId\&quot;: 50,\n      \&quot;title\&quot;: \&quot;test book content\&quot;,\n      \&quot;subtitle\&quot;: \&quot;test book content\&quot;,\n      \&quot;about\&quot;: \&quot;test book content\&quot;,\n      \&quot;shortDescription\&quot;: \&quot;test book content\&quot;,\n      \&quot;targetAudiance\&quot;: \&quot;test book content\&quot;,\n      \&quot;aboutAuthors\&quot;: \&quot;test book content\&quot;\n    }\n  ]\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -55,7 +55,7 @@
       <matchCondition>equals</matchCondition>
       <name>Authorization</name>
       <type>Main</type>
-      <value>Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjZhNzgxNWMxLTUxY2YtNGI2Zi1hMjdjLTFlODJjYWI3NjgyZiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6IlN1cGVyQWRtaW5Ad2FqZWV6LmNvIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlN1cGVyQWRtaW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6IiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlN1cGVyQWRtaW4iLCJQZXJtaXNzaW9uIjpbIjEuNCIsIjI1LjAiLCIyNC4zIiwiMjQuMiIsIjI0LjEiLCIyNC4wIiwiMjMuMiIsIjIzLjEiLCIyMy4wIiwiMjIuMSIsIjIyLjAiLCIyMS4xIiwiMjUuMSIsIjIxLjAiLCIyMC4zIiwiMjAuMiIsIjIwLjEiLCIyMC4wIiwiMTkuNCIsIjE5LjMiLCIxOS4yIiwiMTkuMSIsIjE5LjAiLCIxOC4xMSIsIjE4LjEwIiwiMjAuNCIsIjI1LjIiLCIyNS4zIiwiMjUuNCIsIjMwLjEiLCIzMC4wIiwiMjkuNSIsIjI5LjQiLCIyOS4zIiwiMjkuMiIsIjI5LjEiLCIyOS4wIiwiMjguMSIsIjI4LjAiLCIyNy4xNSIsIjI3LjE0IiwiMjcuMTMiLCIyNy4xMiIsIjI3LjExIiwiMjcuMTAiLCIyNy45IiwiMjcuOCIsIjI3LjYiLCIyNy41IiwiMjcuNCIsIjI3LjMiLCIyNy4yIiwiMjcuMSIsIjI3LjAiLCIxOC45IiwiMTguOCIsIjE4LjciLCIxOC42IiwiNS4xIiwiNS4wIiwiNC40IiwiNC4zIiwiNC4yIiwiNC4xIiwiNC4wIiwiMy4zIiwiMy4yIiwiMy4xIiwiMy4wIiwiMi40IiwiMi4zIiwiMi4yIiwiMi4xIiwiMi4wIiwiMC4wIiwiMC4xIiwiMC4yIiwiMC4zIiwiMC40IiwiMS4wIiwiMS4xIiwiMS4yIiwiMS4zIiwiNS4yIiwiMzAuMiIsIjUuMyIsIjYuMSIsIjE4LjQiLCIxOC4zIiwiMTguMiIsIjE4LjEiLCIxOC4wIiwiMTcuNiIsIjE3LjUiLCIxNy40IiwiMTcuMyIsIjE3LjIiLCIxNy4xIiwiMTcuMCIsIjguMyIsIjguMiIsIjguMSIsIjguMCIsIjcuMiIsIjcuMSIsIjcuMCIsIjYuNyIsIjYuNiIsIjYuNSIsIjYuNCIsIjYuMyIsIjYuMiIsIjYuMCIsIjMwLjMiXSwiZXhwIjoxNjM4NDk4Mzc4fQ.T5LF-dv4UNvHH-QHPsPiYIvPuo-h0r4tvRFzStubuiE</value>
+      <value>Bearer ${token}</value>
    </httpHeaderProperties>
    <katalonVersion>8.1.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>

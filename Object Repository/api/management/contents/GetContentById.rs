@@ -1,47 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Create new PodcastEpisode content item</name>
+   <name>GetContentById</name>
    <tag></tag>
-   <elementGuidId>e698e322-d2d3-4138-b816-20bd743b1d91</elementGuidId>
+   <elementGuidId>35b837ea-804b-4313-83eb-aeed8d1290d7</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>-1</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;profiles\&quot;: [\n    {\n      \&quot;languageId\&quot;: 50,\n      \&quot;name\&quot;: \&quot;Podcastepisode\&quot;,\n      \&quot;image\&quot;: \&quot;Podcastepisode\&quot;,\n      \&quot;shortDescription\&quot;: \&quot;Podcastepisode\&quot;,\n      \&quot;audioItem\&quot;: \&quot;Podcastepisode\&quot;\n    }\n  ]\n}&quot;,
-  &quot;contentType&quot;: &quot;application/json&quot;,
+  &quot;text&quot;: &quot;&quot;,
+  &quot;contentType&quot;: &quot;text/plain&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
    <httpBodyType>text</httpBodyType>
    <httpHeaderProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>Accept-Language</name>
-      <type>Main</type>
-      <value>ar</value>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>x-app-language-id</name>
-      <type>Main</type>
-      <value>tempor commodo sed</value>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>x-app-theme-mode</name>
-      <type>Main</type>
-      <value>Dark</value>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>false</isSelected>
+      <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>Content-Type</name>
       <type>Main</type>
-      <value>application/json</value>
+      <value>text/plain</value>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
@@ -53,8 +32,8 @@
    <katalonVersion>8.2.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
-   <restRequestMethod>POST</restRequestMethod>
-   <restUrl>${baseUrl}/api/management/contentitems/create-podcast-episode</restUrl>
+   <restRequestMethod>GET</restRequestMethod>
+   <restUrl>${baseUrl}/api/management/contentitems/by-id?ContentItemId=</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -63,13 +42,6 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
-   <variables>
-      <defaultValue>GlobalVariable.baseUrl</defaultValue>
-      <description></description>
-      <id>8d6d70e1-f210-4814-8858-ecf7d332e364</id>
-      <masked>false</masked>
-      <name>baseUrl</name>
-   </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject

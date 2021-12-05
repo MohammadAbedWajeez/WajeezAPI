@@ -55,7 +55,7 @@ CreateNewLanguage = WS.sendRequest(findTestObject('api/management/languages/Crea
 def CreateNewLanguageSlurper = new groovy.json.JsonSlurper()
 
 def CreateNewLanguageResult = CreateNewLanguageSlurper.parseText(CreateNewLanguage.getResponseBodyContent())
-
+println(CreateNewLanguageResult)
 def EditLanguageName = CreateNewLanguageResult.data.name
 
 GlobalVariable.EditLanguageName = EditLanguageName
