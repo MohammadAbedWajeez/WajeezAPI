@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Get all tags</name>
+   <name>GetContentItems</name>
    <tag></tag>
-   <elementGuidId>a0a7657e-b208-422a-b09a-7528fb0c0ae6</elementGuidId>
+   <elementGuidId>5a298940-35c4-4ea1-8bc3-088b672e8509</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>-1</connectionTimeout>
@@ -23,38 +23,31 @@
       <value>text/plain</value>
    </httpHeaderProperties>
    <httpHeaderProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>Accept-Language</name>
-      <type>Main</type>
-      <value>ar</value>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>x-app-language-id</name>
-      <type>Main</type>
-      <value>tempor commodo sed</value>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>x-app-theme-mode</name>
-      <type>Main</type>
-      <value>Dark</value>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>Authorization</name>
       <type>Main</type>
       <value>Bearer ${token}</value>
    </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Accept-Language</name>
+      <type>Main</type>
+      <value>en</value>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>x-app-language-id</name>
+      <type>Main</type>
+      <value>50</value>
+   </httpHeaderProperties>
    <katalonVersion>8.2.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${baseUrl}/api/management/tags</restUrl>
+   <restUrl>${baseUrl}/api/management/contentitems</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -66,7 +59,7 @@
    <variables>
       <defaultValue>GlobalVariable.baseUrl</defaultValue>
       <description></description>
-      <id>4a4f729e-ca0c-43dd-8cfb-3c38248a97e0</id>
+      <id>0b54ff25-7658-4bd7-b422-9491e4632359</id>
       <masked>false</masked>
       <name>baseUrl</name>
    </variables>

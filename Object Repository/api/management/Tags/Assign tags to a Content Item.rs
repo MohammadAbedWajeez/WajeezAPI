@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;contentItemId\&quot;: \&quot;dolor exercitation amet nulla\&quot;,\n    \&quot;tagIds\&quot;: [\n        \&quot;aute ex ut labore in\&quot;,\n        \&quot;dolore ut sint\&quot;\n    ]\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;contentItemId\&quot;: \&quot;${ContentItemID}\&quot;,\n    \&quot;tagIds\&quot;: [\n      \&quot;${TagID}\&quot;\n      ]\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -21,20 +21,6 @@
       <name>Accept-Language</name>
       <type>Main</type>
       <value>ar</value>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>x-app-language-id</name>
-      <type>Main</type>
-      <value>tempor commodo sed</value>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>x-app-theme-mode</name>
-      <type>Main</type>
-      <value>Dark</value>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>false</isSelected>
@@ -69,6 +55,20 @@
       <id>7dfb51b5-789a-46ca-8915-39825020d8fe</id>
       <masked>false</masked>
       <name>baseUrl</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.ContentItemID</defaultValue>
+      <description></description>
+      <id>6769f6b6-8877-4fb3-9ab0-3afaebbdcaa4</id>
+      <masked>false</masked>
+      <name>ContentItemID</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.TagID</defaultValue>
+      <description></description>
+      <id>2aa3dc5f-804e-470e-b2e3-17d3819c6827</id>
+      <masked>false</masked>
+      <name>TagID</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

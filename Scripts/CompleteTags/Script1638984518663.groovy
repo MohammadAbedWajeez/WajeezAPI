@@ -16,6 +16,8 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import groovy.json.JsonSlurper as JsonSlurper
+import org.assertj.core.api.Assertions as Assertions
 
 AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('api/management/account/authenticate/Authenticate user using Email and Password', 
         [('baseUrl') : GlobalVariable.baseUrl]))
@@ -48,13 +50,13 @@ def TagID = CreateNewTagResult.data.id
 
 GlobalVariable.TagID = TagID
 
-def EditTagID = CreateNewTagResult.data.name
+def EditTagID = 'Edit' + CreateNewTagResult.data.name
 
 GlobalVariable.EditTagID = EditTagID
 
 WS.verifyResponseStatusCode(CreateNewTag, 200)
-/////////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////
 EditTag = WS.sendRequestAndVerify(findTestObject('api/management/Tags/Edit tag', [('baseUrl') : GlobalVariable.baseUrl, ('EditTagID') : GlobalVariable.EditTagID
             , ('TagID') : GlobalVariable.TagID, ('token') : GlobalVariable.token]))
 
@@ -65,5 +67,46 @@ def EditTagResult = EditTagSlurper.parseText(EditTag.getResponseBodyContent())
 println(EditTagResult)
 
 WS.verifyResponseStatusCode(EditTag, 200)
+
+/////////////////////////////////////////////////////////////////////////
+GetAllTags = WS.sendRequestAndVerify(findTestObject('api/management/Tags/Get all tags', [('baseUrl') : GlobalVariable.baseUrl
+            , ('token') : GlobalVariable.token]))
+
+def GetAllTagsSlurper = new JsonSlurper()
+
+def GetAllTagsResult = GetAllTagsSlurper.parseText(GetAllTags.getResponseBodyContent())
+
+println(GetAllTagsResult)
+
+WS.verifyResponseStatusCode(GetAllTags, 200)
+
+/////////////////////////////////////////////////////////////////////////
+
+GetContentitems = WS.sendRequestAndVerify(findTestObject('api/management/Tags/GetContentItems', [('baseUrl') : GlobalVariable.baseUrl
+            , ('token') : GlobalVariable.token]))
+
+def GetContentitemsSlurper = new JsonSlurper()
+
+def GetContentitemsResult = GetContentitemsSlurper.parseText(GetContentitems.getResponseBodyContent())
+
+println(GetContentitemsResult)
+
+def ContentItemID = GetContentitemsResult.data[0].id
+
+GlobalVariable.ContentItemID = ContentItemID
+
+WS.verifyResponseStatusCode(GetContentitems, 200)
+
+/////////////////////////////////////////////////////////////////////////
+
+AssignTagsToContentItem = WS.sendRequestAndVerify(findTestObject('api/management/Tags/Assign tags to a Content Item', [('baseUrl') : GlobalVariable.baseUrl
+            , ('ContentItemID') : GlobalVariable.ContentItemID, ('TagID') : GlobalVariable.TagID ,('token') : GlobalVariable.token]))
+def AssignTagsToContentItemSlurper = new JsonSlurper()
+
+def AssignTagsToContentItemResult = AssignTagsToContentItemSlurper.parseText(AssignTagsToContentItem.getResponseBodyContent())
+
+println(AssignTagsToContentItemResult)
+
+WS.verifyResponseStatusCode(AssignTagsToContentItem, 200)
 
 
