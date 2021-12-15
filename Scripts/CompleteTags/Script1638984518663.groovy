@@ -93,20 +93,24 @@ println(GetContentitemsResult)
 WS.verifyResponseStatusCode(GetContentitems, 200)
 
 //////////////////////////////////////////////////////////////////////
+NewBookContentItem = ('BookContentItem' + ((Math.random() * 100) as int))
+
+GlobalVariable.NewBookContentItem = NewBookContentItem
 
 CreateNewBookContentItem = WS.sendRequestAndVerify(findTestObject('api/management/contents/Create new book content item', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token]))
+        [('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token, ('NewBookContentItem') : GlobalVariable.NewBookContentItem]))
 
 def CreateNewBookContentItemSlurper = new JsonSlurper()
 
 def CreateNewBookContentItemResult = CreateNewBookContentItemSlurper.parseText(CreateNewBookContentItem.getResponseBodyContent())
+
 def ContentItemID = CreateNewBookContentItemResult.data
 
 GlobalVariable.ContentItemID = ContentItemID
+
 println(CreateNewBookContentItemResult)
+
 WS.verifyResponseStatusCode(CreateNewBookContentItem, 200)
-
-
 
 /////////////////////////////////////////////////////////////////////////
 AssignTagsToContentItem = WS.sendRequestAndVerify(findTestObject('api/management/Tags/Assign tags to a Content Item', [('baseUrl') : GlobalVariable.baseUrl
@@ -120,3 +124,15 @@ println(AssignTagsToContentItemResult)
 
 WS.verifyResponseStatusCode(AssignTagsToContentItem, 200)
 
+/////////////////////////////////////////////////////////////////////////
+
+UnAssignTagFromContent = WS.sendRequestAndVerify(findTestObject('api/management/Tags/Un-Assign tags from a Content Item', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('ContentItemID') : GlobalVariable.ContentItemID, ('TagID') : GlobalVariable.TagID, ('token') : GlobalVariable.token]))
+
+def UnAssignTagFromContentSlurper = new JsonSlurper()
+
+def UnAssignTagFromContentResult = UnAssignTagFromContentSlurper.parseText(UnAssignTagFromContent.getResponseBodyContent())
+
+println(UnAssignTagFromContentResult)
+
+WS.verifyResponseStatusCode(UnAssignTagFromContent, 200)

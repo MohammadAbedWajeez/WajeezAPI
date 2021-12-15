@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;profiles\&quot;: [\n    {\n      \&quot;languageId\&quot;: 50,\n      \&quot;title\&quot;: \&quot;test book content\&quot;,\n      \&quot;subtitle\&quot;: \&quot;test book content\&quot;,\n      \&quot;about\&quot;: \&quot;test book content\&quot;,\n      \&quot;shortDescription\&quot;: \&quot;test book content\&quot;,\n      \&quot;targetAudiance\&quot;: \&quot;test book content\&quot;,\n      \&quot;aboutAuthors\&quot;: \&quot;test book content\&quot;\n    }\n  ]\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;profiles\&quot;: [\n    {\n      \&quot;languageId\&quot;: 50,\n      \&quot;title\&quot;: \&quot;title ${NewBookContentItem}\&quot;,\n      \&quot;subtitle\&quot;: \&quot;subtitle ${NewBookContentItem}\&quot;,\n      \&quot;about\&quot;: \&quot;about ${NewBookContentItem}\&quot;,\n      \&quot;shortDescription\&quot;: \&quot;desc ${NewBookContentItem}\&quot;,\n      \&quot;targetAudiance\&quot;: \&quot;targetaud ${NewBookContentItem}\&quot;,\n      \&quot;aboutAuthors\&quot;: \&quot;aboutAutor ${NewBookContentItem}\&quot;\n    }\n  ]\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -76,6 +76,13 @@
       <id>d920e4bc-5880-4ded-aa66-8ad7df12f84f</id>
       <masked>false</masked>
       <name>baseUrl</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.NewBookContentItem</defaultValue>
+      <description></description>
+      <id>243c192b-e2b5-4025-a538-c8c2ed3a4ef1</id>
+      <masked>false</masked>
+      <name>NewBookContentItem</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

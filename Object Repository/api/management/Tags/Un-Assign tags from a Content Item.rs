@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;contentItemId\&quot;: \&quot;dolor exercitation amet nulla\&quot;,\n    \&quot;tagIds\&quot;: [\n        \&quot;aute ex ut labore in\&quot;,\n        \&quot;dolore ut sint\&quot;\n    ]\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;contentItemId\&quot;: \&quot;${ContentItemID}\&quot;,\n    \&quot;tagIds\&quot;: [\n        \&quot;${TagID}\&quot;\n    ]\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -69,6 +69,20 @@
       <id>4587593a-d66a-4263-878d-34cfc59a364b</id>
       <masked>false</masked>
       <name>baseUrl</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.ContentItemID</defaultValue>
+      <description></description>
+      <id>883599c1-2050-4777-ac1d-4b27818c0fe2</id>
+      <masked>false</masked>
+      <name>ContentItemID</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.TagID</defaultValue>
+      <description></description>
+      <id>4648a375-5f2c-4747-9871-9bec7072731b</id>
+      <masked>false</masked>
+      <name>TagID</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
