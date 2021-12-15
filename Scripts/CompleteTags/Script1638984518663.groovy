@@ -81,7 +81,6 @@ println(GetAllTagsResult)
 WS.verifyResponseStatusCode(GetAllTags, 200)
 
 /////////////////////////////////////////////////////////////////////////
-
 GetContentitems = WS.sendRequestAndVerify(findTestObject('api/management/Tags/GetContentItems', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
 
@@ -91,16 +90,28 @@ def GetContentitemsResult = GetContentitemsSlurper.parseText(GetContentitems.get
 
 println(GetContentitemsResult)
 
-def ContentItemID = GetContentitemsResult.data[0].id
-
-GlobalVariable.ContentItemID = ContentItemID
-
 WS.verifyResponseStatusCode(GetContentitems, 200)
 
-/////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
 
+CreateNewBookContentItem = WS.sendRequestAndVerify(findTestObject('api/management/contents/Create new book content item', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token]))
+
+def CreateNewBookContentItemSlurper = new JsonSlurper()
+
+def CreateNewBookContentItemResult = CreateNewBookContentItemSlurper.parseText(CreateNewBookContentItem.getResponseBodyContent())
+def ContentItemID = CreateNewBookContentItemResult.data
+
+GlobalVariable.ContentItemID = ContentItemID
+println(CreateNewBookContentItemResult)
+WS.verifyResponseStatusCode(CreateNewBookContentItem, 200)
+
+
+
+/////////////////////////////////////////////////////////////////////////
 AssignTagsToContentItem = WS.sendRequestAndVerify(findTestObject('api/management/Tags/Assign tags to a Content Item', [('baseUrl') : GlobalVariable.baseUrl
-            , ('ContentItemID') : GlobalVariable.ContentItemID, ('TagID') : GlobalVariable.TagID ,('token') : GlobalVariable.token]))
+            , ('ContentItemID') : GlobalVariable.ContentItemID, ('TagID') : GlobalVariable.TagID, ('token') : GlobalVariable.token]))
+
 def AssignTagsToContentItemSlurper = new JsonSlurper()
 
 def AssignTagsToContentItemResult = AssignTagsToContentItemSlurper.parseText(AssignTagsToContentItem.getResponseBodyContent())
@@ -108,5 +119,4 @@ def AssignTagsToContentItemResult = AssignTagsToContentItemSlurper.parseText(Ass
 println(AssignTagsToContentItemResult)
 
 WS.verifyResponseStatusCode(AssignTagsToContentItem, 200)
-
 
