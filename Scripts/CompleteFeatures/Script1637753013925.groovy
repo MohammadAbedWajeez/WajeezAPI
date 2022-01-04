@@ -30,6 +30,7 @@ GlobalVariable.token = Token
 
 WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
 
+/////////////////////////////////////////////////////////////////////////
 CreateNewFeature = WS.sendRequestAndVerify(findTestObject('api/management/features/Create new feature', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
 
@@ -45,8 +46,9 @@ GlobalVariable.FeatureID = FeatureID
 
 WS.verifyResponseStatusCode(CreateNewFeature, 200)
 
-EditExistingFeature = WS.sendRequestAndVerify(findTestObject('api/management/features/Edit existing feature', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('FeatureID') : GlobalVariable.FeatureID, ('token') : GlobalVariable.token]))
+/////////////////////////////////////////////////////////////////////////
+EditExistingFeature = WS.sendRequestAndVerify(findTestObject('api/management/features/Edit existing feature', [('baseUrl') : GlobalVariable.baseUrl
+            , ('FeatureID') : GlobalVariable.FeatureID, ('token') : GlobalVariable.token]))
 
 def EditExistingFeatureSlurper = new groovy.json.JsonSlurper()
 
@@ -56,6 +58,7 @@ println(EditExistingFeatureResult)
 
 WS.verifyResponseStatusCode(EditExistingFeature, 200)
 
+/////////////////////////////////////////////////////////////////////////
 GetAllPlans = WS.sendRequestAndVerify(findTestObject('api/management/plans/GetAllPlans', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
 
@@ -67,9 +70,8 @@ def PlanID = GetAllPlansResult.data[0].id
 
 GlobalVariable.PlanID = PlanID
 
-AssignFeatureToPlan = WS.sendRequestAndVerify(findTestObject('api/management/features/Assign Feature To Plan', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('PlanID') : GlobalVariable.PlanID, ('FeatureID') : GlobalVariable.FeatureID
-            , ('token') : GlobalVariable.token]))
+AssignFeatureToPlan = WS.sendRequestAndVerify(findTestObject('api/management/features/Assign Feature To Plan', [('baseUrl') : GlobalVariable.baseUrl
+            , ('PlanID') : GlobalVariable.PlanID, ('FeatureID') : GlobalVariable.FeatureID, ('token') : GlobalVariable.token]))
 
 def AssignFeatureToPlanSlurper = new groovy.json.JsonSlurper()
 
@@ -79,6 +81,7 @@ println(AssignFeatureToPlanResult)
 
 WS.verifyResponseStatusCode(AssignFeatureToPlan, 200)
 
+/////////////////////////////////////////////////////////////////////////
 GetAllFeatures = WS.sendRequestAndVerify(findTestObject('api/management/features/Get all features', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
 
@@ -94,18 +97,19 @@ GetFeatureByPlanId = WS.sendRequestAndVerify(findTestObject('api/management/feat
 
 WS.verifyResponseStatusCode(GetFeatureByPlanId, 200)
 
+/////////////////////////////////////////////////////////////////////////
+UnAssignFeatureByPlanId = WS.sendRequestAndVerify(findTestObject('api/management/features/UnAssignFeatureToPlan', [('baseUrl') : GlobalVariable.baseUrl
+            , ('PlanID') : GlobalVariable.PlanID, ('FeatureID') : GlobalVariable.FeatureID, ('token') : GlobalVariable.token]))
 
-
-UnAssignFeatureByPlanId = WS.sendRequestAndVerify(findTestObject('api/management/features/UnAssignFeatureToPlan', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('PlanID') : GlobalVariable.PlanID, ('FeatureID') : GlobalVariable.FeatureID
-            , ('token') : GlobalVariable.token]))
 def UnAssignFeatureByPlanIdSlurper = new groovy.json.JsonSlurper()
 
 def UnAssignFeatureByPlanIdResult = UnAssignFeatureByPlanIdSlurper.parseText(UnAssignFeatureByPlanId.getResponseBodyContent())
 
 println(UnAssignFeatureByPlanIdResult)
+
 WS.verifyResponseStatusCode(UnAssignFeatureByPlanId, 200)
 
+/////////////////////////////////////////////////////////////////////////
 
 DeleteFeature = WS.sendRequestAndVerify(findTestObject('api/management/features/Delete feature', [('baseUrl') : GlobalVariable.baseUrl
             , ('FeatureID') : GlobalVariable.FeatureID, ('token') : GlobalVariable.token]))
@@ -118,3 +122,18 @@ println(DeleteFeatureResult)
 
 WS.verifyResponseStatusCode(DeleteFeature, 200)
 
+/////////////////////////////////////////////////////////////////////////
+
+InvalidCreateNewFeature = WS.sendRequestAndVerify(findTestObject('api/management/features/Create new feature', [('baseUrl') : GlobalVariable.baseUrl
+            , ('token') : GlobalVariable.token]))
+def InvalidCreateNewFeatureSlurper = new groovy.json.JsonSlurper()
+
+def InvalidCreateNewFeatureResult = InvalidCreateNewFeatureSlurper.parseText(InvalidCreateNewFeature.getResponseBodyContent())
+
+println(InvalidCreateNewFeatureResult)
+
+//def FeatureID = InvalidCreateNewFeatureResult.data
+//
+//GlobalVariable.FeatureID = FeatureID
+
+WS.verifyResponseStatusCode(CreateNewFeature, 200)

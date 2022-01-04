@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>GetContentItems</name>
+   <name>Invalid Create new feature</name>
    <tag></tag>
-   <elementGuidId>5a298940-35c4-4ea1-8bc3-088b672e8509</elementGuidId>
+   <elementGuidId>824e0360-2275-4332-8638-a45f7a9980a4</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>-1</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;&quot;,
-  &quot;contentType&quot;: &quot;text/plain&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;score\&quot;: 10,\n  \&quot;featureProfiles\&quot;: [\n    {\n      \&quot;languageId\&quot;: ,\n      \&quot;description\&quot;: ,\n      \&quot;name\&quot;: \n    }\n  ]\n}&quot;,
+  &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
    <httpBodyType>text</httpBodyType>
    <httpHeaderProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Accept-Language</name>
+      <type>Main</type>
+      <value>en</value>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>Content-Type</name>
       <type>Main</type>
-      <value>text/plain</value>
+      <value>application/json</value>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
@@ -29,25 +36,11 @@
       <type>Main</type>
       <value>Bearer ${token}</value>
    </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>Accept-Language</name>
-      <type>Main</type>
-      <value>en</value>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>x-app-language-id</name>
-      <type>Main</type>
-      <value>50</value>
-   </httpHeaderProperties>
-   <katalonVersion>8.2.0</katalonVersion>
+   <katalonVersion>8.1.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
-   <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${NewBase}/api/management/contentitems</restUrl>
+   <restRequestMethod>POST</restRequestMethod>
+   <restUrl>${NewBase}/api/management/features</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -59,7 +52,7 @@
    <variables>
       <defaultValue>GlobalVariable.baseUrl</defaultValue>
       <description></description>
-      <id>0b54ff25-7658-4bd7-b422-9491e4632359</id>
+      <id>4ae49ff9-ca9f-4a3f-b211-a1a8133a9ec0</id>
       <masked>false</masked>
       <name>baseUrl</name>
    </variables>

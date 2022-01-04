@@ -309,4 +309,14 @@
       <initValue>''</initValue>
       <name>NewBookContentItem</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>null</initValue>
+      <name>Null</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'http://a302107a9255c40428dd8ec0b099835e-2132932729.eu-west-1.elb.amazonaws.com'</initValue>
+      <name>NewBase</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

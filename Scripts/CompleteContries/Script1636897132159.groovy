@@ -41,7 +41,6 @@ countryRegion = ('AU' + ((Math.random() * 100) as int))
 
 GlobalVariable.CountryRegion = countryRegion
 
-
 randomCountryCode2 = ('CC' + ((Math.random() * 10) as int))
 
 GlobalVariable.randomCountryCode2 = randomCountryCode2
@@ -54,12 +53,11 @@ randomCurrencyCode = ('CC' + ((Math.random() * 100) as int))
 
 GlobalVariable.randomCurrencyCode = randomCurrencyCode
 
-
-
 ///////////////////////////////////////////////////////////
 CreateNewCountry = WS.sendRequestAndVerify(findTestObject('api/management/countries/Create new country', [('baseUrl') : GlobalVariable.baseUrl
             , ('CountryName') : GlobalVariable.CountryName, ('CountryRegion') : GlobalVariable.CountryRegion, ('randomCurrencyCode') : GlobalVariable.randomCurrencyCode
-            , ('randomCountryCode2') : GlobalVariable.randomCountryCode2, ('randomCountryCode3') : GlobalVariable.randomCountryCode3, ('token') : GlobalVariable.token]))
+            , ('randomCountryCode2') : GlobalVariable.randomCountryCode2, ('randomCountryCode3') : GlobalVariable.randomCountryCode3
+            , ('token') : GlobalVariable.token]))
 
 def CreateNewCountrySlurper = new groovy.json.JsonSlurper()
 
@@ -72,14 +70,17 @@ WS.verifyResponseStatusCode(CreateNewCountry, 200)
 ///////////////////////////////////////////////////////////
 GetAllCountries = WS.sendRequest(findTestObject('api/management/countries/Get all countries', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
+
 def GetAllCountriesSlurper = new groovy.json.JsonSlurper()
 
 def GetAllCountriesResult = GetAllCountriesSlurper.parseText(GetAllCountries.getResponseBodyContent())
-countryID = GetAllCountriesResult.data.id[200]
+
+countryID = (GetAllCountriesResult.data.id[200])
 
 GlobalVariable.CountryID = countryID
 
 println(GetAllCountriesResult)
+
 println(countryID)
 
 WS.verifyResponseStatusCode(GetAllCountries, 200)
@@ -96,4 +97,17 @@ def EditExistingCountryResult = EditExistingCountrySlurper.parseText(EditExistin
 println(EditExistingCountryResult)
 
 WS.verifyResponseStatusCode(EditExistingCountry, 200)
+
+////////////////////////////////////////////////////////////
+
+InvalidCreateNewCountry = WS.sendRequestAndVerify(findTestObject('api/management/countries/Invalid Create new country', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('null') : GlobalVariable.Null  , ('token') : GlobalVariable.token]))
+
+def InvalidCreateNewCountrySlurper = new groovy.json.JsonSlurper()
+
+def InvalidCreateNewCountryResult = InvalidCreateNewCountrySlurper.parseText(InvalidCreateNewCountry.getResponseBodyContent())
+
+println(InvalidCreateNewCountryResult)
+
+WS.verifyResponseStatusCode(InvalidCreateNewCountry, 400)
 

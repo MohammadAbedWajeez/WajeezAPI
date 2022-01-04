@@ -37,8 +37,7 @@ TagName = ('Tags' + ((Math.random() * 100) as int))
 
 GlobalVariable.TagName = TagName
 
-CreateNewTag = WS.sendRequestAndVerify(findTestObject('api/management/Tags/Create new tag', [('baseUrl') : GlobalVariable.baseUrl
-            , ('TagName') : GlobalVariable.TagName, ('token') : GlobalVariable.token]))
+CreateNewTag = WS.sendRequestAndVerify(findTestObject('api/content/v1/Tags', [('NewBase') : GlobalVariable.NewBase, ('TagName') : GlobalVariable.TagName, ('token') : GlobalVariable.token]))
 
 def CreateNewTagSlurper = new JsonSlurper()
 
@@ -57,7 +56,7 @@ GlobalVariable.EditTagID = EditTagID
 WS.verifyResponseStatusCode(CreateNewTag, 200)
 
 /////////////////////////////////////////////////////////////////////////
-EditTag = WS.sendRequestAndVerify(findTestObject('api/management/Tags/Edit tag', [('baseUrl') : GlobalVariable.baseUrl, ('EditTagID') : GlobalVariable.EditTagID
+EditTag = WS.sendRequestAndVerify(findTestObject('/api/content/v1/Tags', [('NewBase') : GlobalVariable.NewBase, ('EditTagID') : GlobalVariable.EditTagID
             , ('TagID') : GlobalVariable.TagID, ('token') : GlobalVariable.token]))
 
 def EditTagSlurper = new JsonSlurper()
@@ -69,7 +68,7 @@ println(EditTagResult)
 WS.verifyResponseStatusCode(EditTag, 200)
 
 /////////////////////////////////////////////////////////////////////////
-GetAllTags = WS.sendRequestAndVerify(findTestObject('api/management/Tags/Get all tags', [('baseUrl') : GlobalVariable.baseUrl
+GetAllTags = WS.sendRequestAndVerify(findTestObject('/api/content/v1/Tags', [('NewBase') : GlobalVariable.NewBase
             , ('token') : GlobalVariable.token]))
 
 def GetAllTagsSlurper = new JsonSlurper()
@@ -81,7 +80,7 @@ println(GetAllTagsResult)
 WS.verifyResponseStatusCode(GetAllTags, 200)
 
 /////////////////////////////////////////////////////////////////////////
-GetContentitems = WS.sendRequestAndVerify(findTestObject('api/management/Tags/GetContentItems', [('baseUrl') : GlobalVariable.baseUrl
+GetContentitems = WS.sendRequestAndVerify(findTestObject('/api/content/v1/Tags/GetContentItems', [('NewBase') : GlobalVariable.NewBase
             , ('token') : GlobalVariable.token]))
 
 def GetContentitemsSlurper = new JsonSlurper()
@@ -97,8 +96,8 @@ NewBookContentItem = ('BookContentItem' + ((Math.random() * 100) as int))
 
 GlobalVariable.NewBookContentItem = NewBookContentItem
 
-CreateNewBookContentItem = WS.sendRequestAndVerify(findTestObject('api/management/contents/Create new book content item', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token, ('NewBookContentItem') : GlobalVariable.NewBookContentItem]))
+CreateNewBookContentItem = WS.sendRequestAndVerify(findTestObject('/api/content/v1/contents/Create new book content item', 
+        [('NewBase') : GlobalVariable.NewBase, ('token') : GlobalVariable.token, ('NewBookContentItem') : GlobalVariable.NewBookContentItem]))
 
 def CreateNewBookContentItemSlurper = new JsonSlurper()
 
@@ -113,7 +112,7 @@ println(CreateNewBookContentItemResult)
 WS.verifyResponseStatusCode(CreateNewBookContentItem, 200)
 
 /////////////////////////////////////////////////////////////////////////
-AssignTagsToContentItem = WS.sendRequestAndVerify(findTestObject('api/management/Tags/Assign tags to a Content Item', [('baseUrl') : GlobalVariable.baseUrl
+AssignTagsToContentItem = WS.sendRequestAndVerify(findTestObject('/api/content/v1/Tags/assign', [('NewBase') : GlobalVariable.NewBase
             , ('ContentItemID') : GlobalVariable.ContentItemID, ('TagID') : GlobalVariable.TagID, ('token') : GlobalVariable.token]))
 
 def AssignTagsToContentItemSlurper = new JsonSlurper()
@@ -126,8 +125,8 @@ WS.verifyResponseStatusCode(AssignTagsToContentItem, 200)
 
 /////////////////////////////////////////////////////////////////////////
 
-UnAssignTagFromContent = WS.sendRequestAndVerify(findTestObject('api/management/Tags/Un-Assign tags from a Content Item', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('ContentItemID') : GlobalVariable.ContentItemID, ('TagID') : GlobalVariable.TagID, ('token') : GlobalVariable.token]))
+UnAssignTagFromContent = WS.sendRequestAndVerify(findTestObject('/api/content/v1/Tags/un-assign', 
+        [('NewBase') : GlobalVariable.NewBase, ('ContentItemID') : GlobalVariable.ContentItemID, ('TagID') : GlobalVariable.TagID, ('token') : GlobalVariable.token]))
 
 def UnAssignTagFromContentSlurper = new JsonSlurper()
 

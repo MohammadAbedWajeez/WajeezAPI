@@ -54,7 +54,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>PUT</restRequestMethod>
-   <restUrl>${baseUrl}/api/management/tags</restUrl>
+   <restUrl>${NewBase}/api/content/v1/Tags</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -64,11 +64,11 @@
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>GlobalVariable.baseUrl</defaultValue>
+      <defaultValue>GlobalVariable.NewBase</defaultValue>
       <description></description>
       <id>a5139928-6cd0-4231-a247-bd36cfadd6e1</id>
       <masked>false</masked>
-      <name>baseUrl</name>
+      <name>NewBase</name>
    </variables>
    <variables>
       <defaultValue>GlobalVariable.TagName</defaultValue>

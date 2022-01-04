@@ -54,7 +54,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${baseUrl}/api/management/tags</restUrl>
+   <restUrl>${NewBase}/api/content/v1/Tags</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -64,11 +64,11 @@
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>GlobalVariable.baseUrl</defaultValue>
+      <defaultValue>GlobalVariable.NewBase</defaultValue>
       <description></description>
       <id>4a4f729e-ca0c-43dd-8cfb-3c38248a97e0</id>
       <masked>false</masked>
-      <name>baseUrl</name>
+      <name>NewBase</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

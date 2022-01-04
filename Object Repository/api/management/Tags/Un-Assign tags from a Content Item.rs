@@ -54,7 +54,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>${baseUrl}/api/management/tags/un-assign</restUrl>
+   <restUrl>${NewBase}/api/content/v1/Tags/un-assign</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -64,11 +64,11 @@
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>GlobalVariable.baseUrl</defaultValue>
+      <defaultValue>GlobalVariable.NewBase</defaultValue>
       <description></description>
       <id>4587593a-d66a-4263-878d-34cfc59a364b</id>
       <masked>false</masked>
-      <name>baseUrl</name>
+      <name>NewBase</name>
    </variables>
    <variables>
       <defaultValue>GlobalVariable.ContentItemID</defaultValue>

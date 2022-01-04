@@ -54,7 +54,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>DELETE</restRequestMethod>
-   <restUrl>${baseUrl}/api/management/tags?Id=${TagID}</restUrl>
+   <restUrl>${NewBase}/api/content/v1/tags?Id=${TagID}</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -64,11 +64,11 @@
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>GlobalVariable.baseUrl</defaultValue>
+      <defaultValue>GlobalVariable.NewBase</defaultValue>
       <description></description>
       <id>f8603271-fe8a-42d4-b63f-b45bba12f1cb</id>
       <masked>false</masked>
-      <name>baseUrl</name>
+      <name>NewBase</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
