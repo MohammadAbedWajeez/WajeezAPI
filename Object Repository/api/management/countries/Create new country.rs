@@ -40,7 +40,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>${baseUrl}/api/management/countries</restUrl>
+   <restUrl>${NewBase}api/payment/${Version}/countries</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -50,11 +50,11 @@
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>GlobalVariable.baseUrl</defaultValue>
+      <defaultValue>GlobalVariable.NewBase</defaultValue>
       <description></description>
       <id>5e2db741-587d-4670-8a74-ba75a68f5413</id>
       <masked>false</masked>
-      <name>baseUrl</name>
+      <name>NewBase</name>
    </variables>
    <variables>
       <defaultValue>GlobalVariable.CountryName</defaultValue>
@@ -90,6 +90,13 @@
       <id>cddc8cd5-fdca-40e7-b2a9-e02ba1db6aee</id>
       <masked>false</masked>
       <name>randomCountryCode3</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.Version</defaultValue>
+      <description></description>
+      <id>6ec2a1f6-dee8-4a8b-9ebf-7ff078283899</id>
+      <masked>false</masked>
+      <name>Version</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

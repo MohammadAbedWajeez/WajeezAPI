@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebServiceRequestEntity>
+   <description></description>
+   <name>New Postman Request(13)</name>
+   <tag></tag>
+   <elementGuidId>8ab24b3b-ce7c-41ab-823d-b97d482288a7</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <connectionTimeout>-1</connectionTimeout>
+   <followRedirects>false</followRedirects>
+   <httpBody></httpBody>
+   <httpBodyContent>{
+  &quot;text&quot;: &quot;{\n    \&quot;roleId\&quot;: \&quot;urn:uuid:908733e6-fb3f-29ff-79ab-3260ea901a0d\&quot;,\n    \&quot;roleClaims\&quot;: [\n        {\n            \&quot;id\&quot;: 27009188,\n            \&quot;roleId\&quot;: \&quot;5da40a4e-da7f-6a31-071c-78672bb28fec\&quot;,\n            \&quot;type\&quot;: \&quot;culpa sed cupidatat\&quot;,\n            \&quot;value\&quot;: \&quot;au\&quot;,\n            \&quot;description\&quot;: \&quot;anim et commodo\&quot;,\n            \&quot;group\&quot;: \&quot;mollit eu aliquip\&quot;,\n            \&quot;selected\&quot;: true\n        },\n        {\n            \&quot;id\&quot;: 13372172,\n            \&quot;roleId\&quot;: \&quot;urn:uuid:5926bea4-ad99-cfdf-82d3-84d5e6905149\&quot;,\n            \&quot;type\&quot;: \&quot;deserunt\&quot;,\n            \&quot;value\&quot;: \&quot;cupidatat do sit\&quot;,\n            \&quot;description\&quot;: \&quot;veniam sit esse irure\&quot;,\n            \&quot;group\&quot;: \&quot;amet in ea\&quot;,\n            \&quot;selected\&quot;: true\n        }\n    ]\n}&quot;,
+  &quot;contentType&quot;: &quot;application/json&quot;,
+  &quot;charset&quot;: &quot;UTF-8&quot;
+}</httpBodyContent>
+   <httpBodyType>text</httpBodyType>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Accept-Language</name>
+      <type>Main</type>
+      <value>en</value>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Content-Type</name>
+      <type>Main</type>
+      <value>application/json</value>
+   </httpHeaderProperties>
+   <katalonVersion>8.2.0</katalonVersion>
+   <maxResponseSize>-1</maxResponseSize>
+   <migratedVersion>5.4.1</migratedVersion>
+   <restRequestMethod>PUT</restRequestMethod>
+   <restUrl>${baseUrl}/api/identity/v${version}/Role/permissions/update</restUrl>
+   <serviceType>RESTful</serviceType>
+   <soapBody></soapBody>
+   <soapHeader></soapHeader>
+   <soapRequestMethod></soapRequestMethod>
+   <soapServiceEndpoint></soapServiceEndpoint>
+   <soapServiceFunction></soapServiceFunction>
+   <socketTimeout>-1</socketTimeout>
+   <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
+   <variables>
+      <defaultValue>GlobalVariable.baseUrl</defaultValue>
+      <description></description>
+      <id>31256965-0c93-4448-9321-84a14d79db9e</id>
+      <masked>false</masked>
+      <name>baseUrl</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.version</defaultValue>
+      <description></description>
+      <id>33574301-4800-44b0-b052-bcee5c027b9d</id>
+      <masked>false</masked>
+      <name>version</name>
+   </variables>
+   <wsdlAddress></wsdlAddress>
+</WebServiceRequestEntity>

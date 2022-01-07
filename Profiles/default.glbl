@@ -316,7 +316,17 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'http://a302107a9255c40428dd8ec0b099835e-2132932729.eu-west-1.elb.amazonaws.com'</initValue>
+      <initValue>'http://services.wajeez.group'</initValue>
       <name>NewBase</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'v1'</initValue>
+      <name>Version</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>1</initValue>
+      <name>version</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

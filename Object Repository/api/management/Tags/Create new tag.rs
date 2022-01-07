@@ -25,20 +25,6 @@
    <httpHeaderProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>x-app-language-id</name>
-      <type>Main</type>
-      <value>tempor commodo sed</value>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>x-app-theme-mode</name>
-      <type>Main</type>
-      <value>Dark</value>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
       <name>Content-Type</name>
       <type>Main</type>
       <value>application/json</value>
@@ -48,13 +34,13 @@
       <matchCondition>equals</matchCondition>
       <name>Authorization</name>
       <type>Main</type>
-      <value>Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjZhNzgxNWMxLTUxY2YtNGI2Zi1hMjdjLTFlODJjYWI3NjgyZiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6IlN1cGVyQWRtaW5Ad2FqZWV6LmNvIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlN1cGVyQWRtaW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6IiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlN1cGVyQWRtaW4iLCJQZXJtaXNzaW9uIjpbIjEuNCIsIjI1LjAiLCIyNC4zIiwiMjQuMiIsIjI0LjEiLCIyNC4wIiwiMjMuMiIsIjIzLjEiLCIyMy4wIiwiMjIuMSIsIjIyLjAiLCIyMS4xIiwiMjUuMSIsIjIxLjAiLCIyMC4zIiwiMjAuMiIsIjIwLjEiLCIyMC4wIiwiMTkuNCIsIjE5LjMiLCIxOS4yIiwiMTkuMSIsIjE5LjAiLCIxOC4xMSIsIjE4LjEwIiwiMjAuNCIsIjI1LjIiLCIyNS4zIiwiMjUuNCIsIjMwLjEiLCIzMC4wIiwiMjkuNSIsIjI5LjQiLCIyOS4zIiwiMjkuMiIsIjI5LjEiLCIyOS4wIiwiMjguMSIsIjI4LjAiLCIyNy4xNSIsIjI3LjE0IiwiMjcuMTMiLCIyNy4xMiIsIjI3LjExIiwiMjcuMTAiLCIyNy45IiwiMjcuOCIsIjI3LjYiLCIyNy41IiwiMjcuNCIsIjI3LjMiLCIyNy4yIiwiMjcuMSIsIjI3LjAiLCIxOC45IiwiMTguOCIsIjE4LjciLCIxOC42IiwiNS4xIiwiNS4wIiwiNC40IiwiNC4zIiwiNC4yIiwiNC4xIiwiNC4wIiwiMy4zIiwiMy4yIiwiMy4xIiwiMy4wIiwiMi40IiwiMi4zIiwiMi4yIiwiMi4xIiwiMi4wIiwiMC4wIiwiMC4xIiwiMC4yIiwiMC4zIiwiMC40IiwiMS4wIiwiMS4xIiwiMS4yIiwiMS4zIiwiNS4yIiwiMzAuMiIsIjUuMyIsIjYuMSIsIjE4LjQiLCIxOC4zIiwiMTguMiIsIjE4LjEiLCIxOC4wIiwiMTcuNiIsIjE3LjUiLCIxNy40IiwiMTcuMyIsIjE3LjIiLCIxNy4xIiwiMTcuMCIsIjguMyIsIjguMiIsIjguMSIsIjguMCIsIjcuMiIsIjcuMSIsIjcuMCIsIjYuNyIsIjYuNiIsIjYuNSIsIjYuNCIsIjYuMyIsIjYuMiIsIjYuMCIsIjMwLjMiXSwiZXhwIjoxNjQwNjQ4MDYyfQ.A7o0XRHVwYOCkob4TqA-mRLZ4qiNYB6Q822eSrmMTUA</value>
+      <value>Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjA5Njg2ZDliLWZjNTAtNGE3Yy04YjE3LWNhOTFmZTY2NWZkMCIsIlJvbGUiOiJTdXBlckFkbWluIiwiUGVybWlzc2lvbiI6WyIwLjAiLCIwLjEiLCIwLjIiLCIwLjMiLCIwLjQiLCIxLjAiLCIxLjEiLCIxLjIiLCIxLjMiLCIxLjQiLCIyLjAiLCIyLjEiLCIyLjIiLCIyLjMiLCIyLjQiLCIzLjAiLCIzLjEiLCIzLjIiLCIzLjMiLCI0LjAiLCI0LjEiLCI0LjIiLCI0LjMiLCI0LjQiLCI1LjAiLCI1LjEiLCI1LjIiLCI1LjMiLCI2LjAiLCI2LjEiLCI2LjIiLCI2LjMiLCI2LjQiLCI2LjUiLCI2LjYiLCI2LjciLCI3LjAiLCI3LjEiLCI3LjIiLCI4LjAiLCI4LjEiLCI4LjIiLCI4LjMiLCIxMC4wIiwiMTAuMSIsIjEwLjIiLCIxMC4zIiwiMTAuNCIsIjE3LjAiLCIxNy4xIiwiMTcuMiIsIjE3LjMiLCIxNy40IiwiMTcuNSIsIjE3LjYiLCIxOC4wIiwiMTguMSIsIjE4LjIiLCIxOC4zIiwiMTguNCIsIjE4LjYiLCIxOC43IiwiMTguOCIsIjE4LjkiLCIxOC4xMCIsIjE4LjExIiwiMTguMTIiLCIxOC4xMyIsIjE5LjAiLCIxOS4xIiwiMTkuMiIsIjE5LjMiLCIxOS40IiwiMjAuMCIsIjIwLjEiLCIyMC4yIiwiMjAuMyIsIjIwLjQiLCIyMS4wIiwiMjEuMSIsIjIyLjAiLCIyMi4xIiwiMjMuMCIsIjIzLjEiLCIyMy4yIiwiMjQuMCIsIjI0LjEiLCIyNC4yIiwiMjQuMyIsIjI1LjAiLCIyNS4xIiwiMjUuMiIsIjI1LjMiLCIyNS40IiwiMjcuMCIsIjI3LjEiLCIyNy4yIiwiMjcuMyIsIjI3LjQiLCIyNy41IiwiMjcuNiIsIjI3LjgiLCIyNy45IiwiMjcuMTAiLCIyNy4xMSIsIjI3LjEyIiwiMjcuMTMiLCIyNy4xNCIsIjI3LjE1IiwiMjguMCIsIjI4LjEiLCIyOS4wIiwiMjkuMSIsIjI5LjIiLCIyOS4zIiwiMjkuNCIsIjI5LjUiLCIzMC4wIiwiMzAuMSIsIjMwLjIiLCIzMC4zIiwiMzEuMCIsIjMxLjEiLCIzMS4yIiwiMzEuMyIsIjMxLjQiLCIzMS41IiwiMzIuMCIsIjMzLjAiLCIzMy4xIiwiNDEuMyIsIjMzLjIiLCIzMy4zIiwiMzQuMCIsIjM1LjAiLCI5IiwiMzIuMSIsIjM2LjAiLCIzNi4xIiwiMzYuMiIsIjM2LjMiLCIzNi40IiwiMzYuNSIsIjIwLjUiLCIyMC42IiwiMjAuNyIsIjMyLjIiLCIzNi42IiwiMzYuNyIsIjM3LjAiLCIzNy4xIiwiMzcuMiIsIjM4LjAiLCIzOC4xIiwiMzguMiIsIjM4LjMiLCIzOS4wIiwiMzkuMSIsIjM5LjIiLCI0MC4wIiwiNDAuMSIsIjQwLjIiLCI0MC4zIiwiNDAuNCIsIjQxLjAiLCI0MS4xIiwiNDEuMiIsIjQxLjQiLCI0MS41IiwiNDEuNiIsIjE4LjE0IiwiNDIuMCIsIjQyLjEiLCI0Mi4yIiwiNDIuMyIsIjQyLjQiLCI0Mi41IiwiNDIuNiIsIjQyLjciXSwiZXhwIjoxNjQxMzM2NDUwfQ.j5SDothgbJn9UlbDC0-zEQjFX96ZQ1lAKSkhonROUqE</value>
    </httpHeaderProperties>
    <katalonVersion>8.2.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>${NewBase}/api/content/v1/Tags</restUrl>
+   <restUrl>${NewBase}/api/content/${Version}/Tags</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -76,6 +62,13 @@
       <id>2fc2a751-5caa-46ed-990a-5854cdc4660c</id>
       <masked>false</masked>
       <name>TagName</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.Version</defaultValue>
+      <description></description>
+      <id>00a426ad-cbfe-45cd-925b-28bd9b599b4c</id>
+      <masked>false</masked>
+      <name>Version</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

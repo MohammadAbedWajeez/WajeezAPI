@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebServiceRequestEntity>
+   <description></description>
+   <name>New Postman Request(7)</name>
+   <tag></tag>
+   <elementGuidId>f6a199d5-d78e-482b-8669-38f1d054cc57</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <connectionTimeout>-1</connectionTimeout>
+   <followRedirects>false</followRedirects>
+   <httpBody></httpBody>
+   <httpBodyContent>{
+  &quot;text&quot;: &quot;{\n    \&quot;contentItemType\&quot;: \&quot;Lorem ea id\&quot;,\n    \&quot;description\&quot;: \&quot;elit ex Duis irure\&quot;,\n    \&quot;fields\&quot;: [\n        {\n            \&quot;fieldOptions\&quot;: {\n                \&quot;isMulti\&quot;: false,\n                \&quot;withOrder\&quot;: true,\n                \&quot;optionsListEndPoint\&quot;: \&quot;ullamco exercitation esse\&quot;,\n                \&quot;uploadEndPoint\&quot;: \&quot;ipsum Ut est non\&quot;,\n                \&quot;upToKB\&quot;: -40229604,\n                \&quot;types\&quot;: [\n                    \&quot;aliquip ut quis occaecat\&quot;,\n                    \&quot;Excepteur quis dolor ipsum\&quot;\n                ],\n                \&quot;max\&quot;: -24449193.570050508,\n                \&quot;min\&quot;: -50297337.67947064,\n                \&quot;selectOptions\&quot;: [\n                    {\n                        \&quot;value\&quot;: \&quot;ex ullamco quis\&quot;,\n                        \&quot;label\&quot;: \&quot;magna fugiat\&quot;\n                    },\n                    {\n                        \&quot;value\&quot;: \&quot;exercitation aliqua dolor laboris consequat\&quot;,\n                        \&quot;label\&quot;: \&quot;cupidatat proident\&quot;\n                    }\n                ],\n                \&quot;rows\&quot;: -32844756,\n                \&quot;height\&quot;: 69216041,\n                \&quot;maxLength\&quot;: -36378832,\n                \&quot;minLength\&quot;: -10358640,\n                \&quot;minDate\&quot;: \&quot;1960-03-01T07:31:05.845Z\&quot;,\n                \&quot;maxDate\&quot;: \&quot;1976-07-11T21:28:30.071Z\&quot;\n            },\n            \&quot;label\&quot;: \&quot;exercitation esse\&quot;,\n            \&quot;name\&quot;: \&quot;quis\&quot;,\n            \&quot;order\&quot;: 22768827,\n            \&quot;placeHolder\&quot;: \&quot;exercitation aliquip incididunt\&quot;,\n            \&quot;span\&quot;: \&quot;nostru\&quot;,\n            \&quot;required\&quot;: true,\n            \&quot;fieldType\&quot;: 13\n        },\n        {\n            \&quot;fieldOptions\&quot;: {\n                \&quot;isMulti\&quot;: true,\n                \&quot;withOrder\&quot;: false,\n                \&quot;optionsListEndPoint\&quot;: \&quot;mollit Lorem id\&quot;,\n                \&quot;uploadEndPoint\&quot;: \&quot;id in\&quot;,\n                \&quot;upToKB\&quot;: 67606824,\n                \&quot;types\&quot;: [\n                    \&quot;dolor\&quot;,\n                    \&quot;ipsum\&quot;\n                ],\n                \&quot;max\&quot;: 49581622.301448375,\n                \&quot;min\&quot;: -70576294.68029796,\n                \&quot;selectOptions\&quot;: [\n                    {\n                        \&quot;value\&quot;: \&quot;irure exercitation in ea elit\&quot;,\n                        \&quot;label\&quot;: \&quot;voluptate dolor consequat in\&quot;\n                    },\n                    {\n                        \&quot;value\&quot;: \&quot;magna tempor\&quot;,\n                        \&quot;label\&quot;: \&quot;eu tempor\&quot;\n                    }\n                ],\n                \&quot;rows\&quot;: -63532350,\n                \&quot;height\&quot;: 35696184,\n                \&quot;maxLength\&quot;: 21304238,\n                \&quot;minLength\&quot;: -74487506,\n                \&quot;minDate\&quot;: \&quot;1968-08-28T14:32:03.766Z\&quot;,\n                \&quot;maxDate\&quot;: \&quot;2011-08-10T19:17:17.810Z\&quot;\n            },\n            \&quot;label\&quot;: \&quot;ipsum amet\&quot;,\n            \&quot;name\&quot;: \&quot;ipsum culpa dolore cillum ex\&quot;,\n            \&quot;order\&quot;: 22933265,\n            \&quot;placeHolder\&quot;: \&quot;ea id laboris labore\&quot;,\n            \&quot;span\&quot;: \&quot;qui eiusmod et veniam\&quot;,\n            \&quot;required\&quot;: false,\n            \&quot;fieldType\&quot;: 13\n        }\n    ],\n    \&quot;title\&quot;: \&quot;incididunt ad\&quot;,\n    \&quot;languageId\&quot;: 34241648,\n    \&quot;contentItemTypeType\&quot;: 0,\n    \&quot;viewType\&quot;: 1\n}&quot;,
+  &quot;contentType&quot;: &quot;application/json&quot;,
+  &quot;charset&quot;: &quot;UTF-8&quot;
+}</httpBodyContent>
+   <httpBodyType>text</httpBodyType>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Accept-Language</name>
+      <type>Main</type>
+      <value>en</value>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Content-Type</name>
+      <type>Main</type>
+      <value>application/json</value>
+   </httpHeaderProperties>
+   <katalonVersion>8.2.0</katalonVersion>
+   <maxResponseSize>-1</maxResponseSize>
+   <migratedVersion>5.4.1</migratedVersion>
+   <restRequestMethod>POST</restRequestMethod>
+   <restUrl>${baseUrl}/api/content/v${version}/ContentItemMetaDatas</restUrl>
+   <serviceType>RESTful</serviceType>
+   <soapBody></soapBody>
+   <soapHeader></soapHeader>
+   <soapRequestMethod></soapRequestMethod>
+   <soapServiceEndpoint></soapServiceEndpoint>
+   <soapServiceFunction></soapServiceFunction>
+   <socketTimeout>-1</socketTimeout>
+   <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
+   <variables>
+      <defaultValue>GlobalVariable.baseUrl</defaultValue>
+      <description></description>
+      <id>26eadaf0-b4a0-4f56-911c-9ef4b3235824</id>
+      <masked>false</masked>
+      <name>baseUrl</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.version</defaultValue>
+      <description></description>
+      <id>a118baf9-ad87-45ac-a9a0-c45d7989a80e</id>
+      <masked>false</masked>
+      <name>version</name>
+   </variables>
+   <wsdlAddress></wsdlAddress>
+</WebServiceRequestEntity>
