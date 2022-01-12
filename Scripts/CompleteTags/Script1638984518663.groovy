@@ -19,7 +19,7 @@ import org.openqa.selenium.Keys as Keys
 import groovy.json.JsonSlurper as JsonSlurper
 import org.assertj.core.api.Assertions as Assertions
 
-AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('api/management/account/authenticate/Authenticate user using Email and Password', 
+AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('version_1/Wajeez_Identity/account/authenticate/Authenticate user using Email and Password', 
         [('baseUrl') : GlobalVariable.baseUrl]))
 
 def AuthenticateUserUsingEmailAndPasswordSlurper = new JsonSlurper()

@@ -18,7 +18,7 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import org.assertj.core.api.Assertions as Assertions
 
-AuthenticateUsingEmailAndPassword = WS.sendRequest(findTestObject('api/management/account/authenticate/Authenticate user using Email and Password', 
+AuthenticateUsingEmailAndPassword = WS.sendRequest(findTestObject('version_1/Wajeez_Identity/account/authenticate/Authenticate user using Email and Password', 
         [('baseUrl') : GlobalVariable.baseUrl, ('email') : 'SuperAdmin@wajeez.co', ('password') : 'wajeez@123']))
 
 def AuthenticateUsingEmailAndPasswordslurper = new groovy.json.JsonSlurper()
@@ -42,9 +42,9 @@ RegisterUserPassword = ('Password' + ((Math.random() * 1000) as int))
 
 GlobalVariable.RegisterUserPassword = RegisterUserPassword
 
-RegisterTheUserUsingEmailAndPassword = WS.sendRequest(findTestObject('api/management/account/user Id/Register the user using email and password', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('randomBodyEmail') : GlobalVariable.randomBodyEmail, ('randomFirstName') : GlobalVariable.randomFirstName
-            , ('RegisterUserPassword') : GlobalVariable.RegisterUserPassword]))
+RegisterTheUserUsingEmailAndPassword = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/Register the user using email and password', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('randomBodyEmail') : GlobalVariable.randomBodyEmail
+            , ('$randomHexColor') : GlobalVariable.randomHexColor, ('$randomFirstName') : GlobalVariable.randomFirstName]))
 
 def RegisterTheUserUsingEmailAndPasswordslurper = new groovy.json.JsonSlurper()
 
@@ -56,15 +56,15 @@ def RegisteredEmail = RegisterTheUserUsingEmailAndPasswordresult.data.email
 
 println(RegisteredEmail)
 
- 
 UserRegisteredID = RegisterTheUserUsingEmailAndPasswordresult.data.id
+
 println(UserRegisteredID)
 
 WS.verifyResponseStatusCode(RegisterTheUserUsingEmailAndPassword, 200)
 
 //////////////////////////////////////////////////////////////////////////
-CheckEmailValidityAndExistenceEmailExist = WS.sendRequest(findTestObject('api/management/account/token/Check email validity and existence', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('RegisteredEmail') : GlobalVariable.EmailValidity]))
+CheckEmailValidityAndExistenceEmailExist = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/Check email validity and existence', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
 
 def CheckEmailValidityAndExistenceEmailExistslurper = new groovy.json.JsonSlurper()
 
@@ -72,15 +72,13 @@ def CheckEmailValidityAndExistenceEmailExistresult = CheckEmailValidityAndExiste
 
 println(CheckEmailValidityAndExistenceEmailExistresult)
 
-
-
 GlobalVariable.UserRegisteredID = UserRegisteredID
 
 WS.verifyResponseStatusCode(CheckEmailValidityAndExistenceEmailExist, 200)
 
 /////////////////////////////////////////////////////////////////////////////
-GetUserDetailsUsingUserId = WS.sendRequest(findTestObject('api/management/account/user Id/Get user details using his id', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token, ('UserRegisteredID') : GlobalVariable.UserRegisteredID]))
+GetUserDetailsUsingUserId = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/{user Id}/Get user details using his id', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
 
 def GetUserDetailsUsingUserIdSlurper = new groovy.json.JsonSlurper()
 
@@ -92,12 +90,9 @@ println(UserRegisteredID)
 
 WS.verifyResponseStatusCode(GetUserDetailsUsingUserId, 200)
 
-
 ////////////////////////////////////////////////////////////
-
-SoftDeletionOfTheRequestedUser = WS.sendRequestAndVerify(findTestObject('api/management/account/user Id/Soft deletion of the requested user', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('UserRegisteredID') : GlobalVariable.UserRegisteredID, ('token') : GlobalVariable.token ]))
-
+SoftDeletionOfTheRequestedUser = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Identity/Account/Soft deletion of the current user', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
 
 def SoftDeletionOfTheRequestedUserSlurper = new groovy.json.JsonSlurper()
 
@@ -105,15 +100,13 @@ def SoftDeletionOfTheRequestedUserResult = SoftDeletionOfTheRequestedUserSlurper
 
 println(SoftDeletionOfTheRequestedUserResult)
 
-
 WS.verifyResponseStatusCode(SoftDeletionOfTheRequestedUser, 200)
 
- ///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+println(UserRegisteredID)
 
-println(UserRegisteredID)  
-
-GetUserDetailsUsingUserIdII = WS.sendRequest(findTestObject('api/management/account/user Id/Get user details using his id',
-	[('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token, ('UserRegisteredID') : GlobalVariable.UserRegisteredID]))
+GetUserDetailsUsingUserIdII = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/{user Id}/Get user details using his id', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
 
 def GetUserDetailsUsingUserIdIISlurper = new groovy.json.JsonSlurper()
 
@@ -123,22 +116,19 @@ println(GetUserDetailsUsingUserIdIIResult)
 
 Userdataafterdelete = GetUserDetailsUsingUserIdIIResult.data
 
-if(Userdataafterdelete == null) {
-	println (" The User was deleted successfuly")
+if (Userdataafterdelete == null) {
+    println(' The User was deleted successfuly')
 }
 
 WS.verifyResponseStatusCode(GetUserDetailsUsingUserIdII, 200)
 
 ///////////////////////////////////////////////////////////////////////
-
-CheckEmailValidityAndExistenceEmailExistII = WS.sendRequest(findTestObject('api/management/account/token/Check email validity and existence',
-	[('baseUrl') : GlobalVariable.baseUrl, ('RegisteredEmail') : GlobalVariable.EmailValidity, ('token') : GlobalVariable.token]))
+CheckEmailValidityAndExistenceEmailExistII = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/Check email validity and existence', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
 
 def CheckEmailValidityAndExistenceEmailExistIIslurper = new groovy.json.JsonSlurper()
 
 def CheckEmailValidityAndExistenceEmailExistIIresult = CheckEmailValidityAndExistenceEmailExistIIslurper.parseText(CheckEmailValidityAndExistenceEmailExistII.getResponseBodyContent())
 
 println(CheckEmailValidityAndExistenceEmailExistIIresult)
-
-//Done By Abd
 

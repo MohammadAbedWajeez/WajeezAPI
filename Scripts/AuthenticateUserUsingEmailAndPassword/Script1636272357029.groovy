@@ -17,7 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-response = WS.sendRequest(findTestObject('api/management/account/authenticate/Authenticate user using Email and Password', 
+response = WS.sendRequest(findTestObject('version_1/Wajeez_Identity/account/authenticate/Authenticate user using Email and Password', 
         [('baseUrl') : GlobalVariable.baseUrl, ('email') : 'SuperAdmin@wajeez.co', ('password') : 'wajeez@123']))
 
 def slurper = new groovy.json.JsonSlurper()
@@ -28,8 +28,14 @@ def Token = result.data.token
 
 GlobalVariable.token = Token
 
-CheckEmailValidity = WS.sendRequestAndVerify(findTestObject('api/management/account/token/Check email validity and existence', [('baseUrl') : GlobalVariable.baseUrl]))
+CheckEmailValidity = WS.sendRequestAndVerify(findTestObject('version_1/Wajeez_Identity/account/Check email validity and existence', [('baseUrl') : GlobalVariable.baseUrl]))
 
-WS.verifyResponseStatusCode(CheckEmailValidity, 200)
+def CheckEmailValiditySlurper = new groovy.json.JsonSlurper()
+def CheckEmailValidityResult = CheckEmailValiditySlurper.parseText(CheckEmailValidity.getResponseBodyContent())
+println(CheckEmailValidityResult)
+
+WS.verifyResponseStatusCode(CheckEmailValidity, 400)
+
+
 
 

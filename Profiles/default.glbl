@@ -321,11 +321,6 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'v1'</initValue>
-      <name>Version</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
       <initValue>1</initValue>
       <name>version</name>
    </GlobalVariableEntity>

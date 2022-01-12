@@ -17,7 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('api/management/account/authenticate/Authenticate user using Email and Password', 
+AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('version_1/Wajeez_Identity/account/authenticate/Authenticate user using Email and Password', 
         [('baseUrl') : GlobalVariable.baseUrl]))
 
 def AuthenticateUserUsingEmailAndPasswordSlurper = new groovy.json.JsonSlurper()
@@ -30,7 +30,7 @@ GlobalVariable.token = Token
 
 WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
 
-GetAllPlanGroups = WS.sendRequestAndVerify(findTestObject('api/management/PlanGroup/GetAllPlanGroups', [('baseUrl') : GlobalVariable.baseUrl
+GetAllPlanGroups = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/plangroups/GetAllPlanGroups', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
 
 def GetAllPlanGroupsSlurper = new groovy.json.JsonSlurper()
@@ -45,7 +45,7 @@ PlanGroupName = ('PlanGroup' + ((Math.random() * 1000) as int))
 
 GlobalVariable.PlanGroupName = PlanGroupName
 
-CreateNewPlanGroup = WS.sendRequestAndVerify(findTestObject('api/management/PlanGroup/CreateNewPlanGroup', [('baseUrl') : GlobalVariable.baseUrl
+CreateNewPlanGroup = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/plangroups/CreateNewPlanGroup', [('baseUrl') : GlobalVariable.baseUrl
             , ('PlanGroupName') : GlobalVariable.PlanGroupName, ('token') : GlobalVariable.token]))
 
 def CreateNewPlanGroupSlurper = new groovy.json.JsonSlurper()
@@ -63,7 +63,7 @@ GlobalVariable.PlanGroupId = PlanGroupId
 //GlobalVariable.CreatedPlanGroupName = CreatedPlanGroupName
 println(PlanGroupId)
 
-EditPlanGroup = WS.sendRequestAndVerify(findTestObject('api/management/PlanGroup/EditExistPlanGroup', [('baseUrl') : GlobalVariable.baseUrl
+EditPlanGroup = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/plangroups/EditExistPlanGroup', [('baseUrl') : GlobalVariable.baseUrl
             , ('PlanGroupId') : GlobalVariable.PlanGroupId, ('token') : GlobalVariable.token, ('PlanGroupName') : GlobalVariable.PlanGroupName]))
 
 WS.verifyResponseStatusCode(EditPlanGroup, 200)

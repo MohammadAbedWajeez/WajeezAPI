@@ -17,7 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('api/management/account/authenticate/Authenticate user using Email and Password', 
+AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('version_1/Wajeez_Identity/account/authenticate/Authenticate user using Email and Password', 
         [('baseUrl') : GlobalVariable.baseUrl]))
 
 def AuthenticateUserUsingEmailAndPasswordSlurper = new groovy.json.JsonSlurper()
@@ -31,7 +31,7 @@ GlobalVariable.token = Token
 WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
 
 ///////////////////////////////////////////////////////////
-GetAllPlanGroups = WS.sendRequestAndVerify(findTestObject('api/management/PlanGroup/GetAllPlanGroups', [('baseUrl') : GlobalVariable.baseUrl
+GetAllPlanGroups = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/plangroups/GetAllPlanGroups', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
 
 def GetAllPlanGroupsSlurper = new groovy.json.JsonSlurper()
@@ -53,7 +53,7 @@ PlanName = ('PlanName' + ((Math.random() * 1000) as int))
 
 GlobalVariable.PlanName = PlanName
 
-CreateNewPlan = WS.sendRequestAndVerify(findTestObject('api/management/plans/CreateNewPlan', [('baseUrl') : GlobalVariable.baseUrl
+CreateNewPlan = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/plans/CreateNewPlan', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token, ('PlanName') : GlobalVariable.PlanName, ('PlanGroupId') : GlobalVariable.PlanGroupId]))
 
 def CreateNewPlanSlurper = new groovy.json.JsonSlurper()
@@ -65,7 +65,7 @@ println(CreateNewPlanResult)
 WS.verifyResponseStatusCode(CreateNewPlan, 200)
 
 ///////////////////////////////////////////////////////////
-GetAllPlans = WS.sendRequestAndVerify(findTestObject('api/management/plans/GetAllPlans', [('baseUrl') : GlobalVariable.baseUrl
+GetAllPlans = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/plans/GetAllPlans', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
 
 def GetAllPlansSlurper = new groovy.json.JsonSlurper()
@@ -83,27 +83,32 @@ println(PlanId)
 WS.verifyResponseStatusCode(GetAllPlans, 200)
 
 ///////////////////////////////////////////////////////////
-
-GetPlanById = WS.sendRequestAndVerify(findTestObject('api/management/plans/Get plan by id', [('baseUrl') : GlobalVariable.baseUrl
+GetPlanById = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/plans/Get plan by id', [('baseUrl') : GlobalVariable.baseUrl
             , ('PlanId') : GlobalVariable.PlanID, ('token') : GlobalVariable.token]))
+
 def GetPlanByIdSlurper = new groovy.json.JsonSlurper()
+
 def GetPlanByIdResult = GetPlanByIdSlurper.parseText(GetPlanById.getResponseBodyContent())
+
 println(GetPlanByIdResult)
+
 WS.verifyResponseStatusCode(GetPlanById, 200)
 
 ///////////////////////////////////////////////////////////
-EditExistingPlan = WS.sendRequestAndVerify(findTestObject('api/management/plans/EditExistingPlan', [('baseUrl') : GlobalVariable.baseUrl
+EditExistingPlan = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/plans/EditExistingPlan', [('baseUrl') : GlobalVariable.baseUrl
             , ('PlanId') : GlobalVariable.PlanID, ('PlanName') : GlobalVariable.PlanName, ('PlanGroupId') : GlobalVariable.PlanGroupId
             , ('token') : GlobalVariable.token]))
 
 def EditExistingPlanSlurper = new groovy.json.JsonSlurper()
+
 def EditExistingPlanResult = EditExistingPlanSlurper.parseText(EditExistingPlan.getResponseBodyContent())
+
 println(EditExistingPlanResult)
 
 WS.verifyResponseStatusCode(EditExistingPlan, 200)
 
 /////////////////////////////////////////////////////////////
-DeletePlan = WS.sendRequestAndVerify(findTestObject('api/management/plans/DeletePlan', [('baseUrl') : GlobalVariable.baseUrl
+DeletePlan = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/plans/DeletePlan', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token, ('PlanId') : GlobalVariable.PlanID]))
 
 WS.verifyResponseStatusCode(DeletePlan, 200)

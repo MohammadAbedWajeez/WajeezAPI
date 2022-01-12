@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.*
 
 
 
-AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('api/management/account/authenticate/Authenticate user using Email and Password', 
+AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('version_1/Wajeez_Identity/account/authenticate/Authenticate user using Email and Password', 
         [('baseUrl') : GlobalVariable.baseUrl]))
 def AuthenticateUserUsingEmailAndPasswordSlurper = new groovy.json.JsonSlurper()
 def AuthenticateUserUsingEmailAndPasswordResult = AuthenticateUserUsingEmailAndPasswordSlurper.parseText(AuthenticateUserUsingEmailAndPassword.getResponseBodyContent())
@@ -33,19 +33,20 @@ WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
 
 RandomRoleName = ('RoleName' + ((Math.random() * 1000) as int))
 GlobalVariable.RandomRoleName = RandomRoleName
-AddOrUpdateRole = WS.sendRequestAndVerify(findTestObject('api/management/role/Add pr update a Role', [('baseUrl') : GlobalVariable.baseUrl
-	, ('26a8e7b5-17af-481d-bb12-4898fcc85e12') : GlobalVariable.ContentManagerID, ('token') : GlobalVariable.token, ('RandomRoleName') : GlobalVariable.RandomRoleName]))
-WS.verifyResponseStatusCode(AddOrUpdateRole, 200)
+AddOrUpdateRole = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Identity/role/Add pr update a Role', [('baseUrl') : GlobalVariable.baseUrl
+	, ('db126f9e-3245-4c15-b812-d13240f26bae') : GlobalVariable.ContentManagerID, ('token') : GlobalVariable.token, ('RandomRoleName') : GlobalVariable.RandomRoleName]))
+
 def AddOrUpdateRoleSlurper = new groovy.json.JsonSlurper()
 def AddOrUpdateRoleResult = AddOrUpdateRoleSlurper.parseText(AddOrUpdateRole.getResponseBodyContent())
 println(AddOrUpdateRoleResult)
 def Success = AddOrUpdateRoleResult.success
 assertThat(Success).isEqualTo(true)
+WS.verifyResponseStatusCode(AddOrUpdateRole, 200)
 
 ///////////////////////////////////////////////////////////////////////////////
 
 
-GetAllRoles = WS.sendRequestAndVerify(findTestObject('api/management/role/Get All Roles (basic, admin etc.)', [('baseUrl') : GlobalVariable.baseUrl
+GetAllRoles = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Identity/role/Get All Roles (basic, admin etc.)', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
 WS.verifyResponseStatusCode(GetAllRoles, 200)
 def GetAllRolesSlurper = new groovy.json.JsonSlurper()
@@ -68,14 +69,14 @@ GlobalVariable.AudioOfficerID = AudioOfficerID
 
 ///////////////////////////////////////////////////////////////////////////////
 
-DeleteRole = WS.sendRequestAndVerify(findTestObject('api/management/role/Delete a Role', [('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token, ('ContentManagerID') : GlobalVariable.ContentManagerID]))
+DeleteRole = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Identity/role/Delete a Role', [('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token, ('ContentManagerID') : GlobalVariable.ContentManagerID]))
 def DeleteRoleSlurper = new groovy.json.JsonSlurper()
 def DeleteRoleResult = DeleteRoleSlurper.parseText(DeleteRole.getResponseBodyContent())
 println(DeleteRoleResult)
 WS.verifyResponseStatusCode(DeleteRole, 400)
 
 ///////////////////////////////////////////////////////////////////////////////
-AfterDeleteGetAllRoles = WS.sendRequestAndVerify(findTestObject('api/management/role/Get All Roles (basic, admin etc.)', [('baseUrl') : GlobalVariable.baseUrl
+AfterDeleteGetAllRoles = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Identity/role/Get All Roles (basic, admin etc.)', [('baseUrl') : GlobalVariable.baseUrl
 	, ('token') : GlobalVariable.token]))
 def AfterDeleteGetAllRolesSlurper = new groovy.json.JsonSlurper()
 def AfterDeleteGetAllRolesResult = AfterDeleteGetAllRolesSlurper.parseText(AfterDeleteGetAllRoles.getResponseBodyContent())

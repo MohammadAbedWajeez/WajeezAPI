@@ -19,8 +19,8 @@ import org.openqa.selenium.Keys as Keys
 import groovy.json.JsonSlurper as JsonSlurper
 import org.assertj.core.api.Assertions as Assertions
 
-AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('api/management/account/authenticate/Authenticate user using Email and Password', 
-        [('baseUrl') : GlobalVariable.baseUrl]))
+AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/authenticate/Authenticate user using Email and Password', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
 
 def slurper = new groovy.json.JsonSlurper()
 
@@ -54,10 +54,10 @@ randomCurrencyCode = ('CC' + ((Math.random() * 100) as int))
 GlobalVariable.randomCurrencyCode = randomCurrencyCode
 
 ///////////////////////////////////////////////////////////
-CreateNewCountry = WS.sendRequestAndVerify(findTestObject('api/management/countries/Create new country', [('baseUrl') : GlobalVariable.baseUrl
-            , ('CountryName') : GlobalVariable.CountryName, ('CountryRegion') : GlobalVariable.CountryRegion, ('randomCurrencyCode') : GlobalVariable.randomCurrencyCode
-            , ('randomCountryCode2') : GlobalVariable.randomCountryCode2, ('randomCountryCode3') : GlobalVariable.randomCountryCode3
-            , ('token') : GlobalVariable.token]))
+CreateNewCountry = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/countries/Create new country', [
+            ('baseUrl') : GlobalVariable.baseUrl, ('CountryName') : GlobalVariable.CountryName, ('CountryRegion') : GlobalVariable.CountryRegion
+            , ('randomCurrencyCode') : GlobalVariable.randomCurrencyCode, ('randomCountryCode2') : GlobalVariable.randomCountryCode2
+            , ('randomCountryCode3') : GlobalVariable.randomCountryCode3, ('version') : GlobalVariable.version]))
 
 def CreateNewCountrySlurper = new groovy.json.JsonSlurper()
 
@@ -68,8 +68,8 @@ println(CreateNewCountryResult)
 WS.verifyResponseStatusCode(CreateNewCountry, 200)
 
 ///////////////////////////////////////////////////////////
-GetAllCountries = WS.sendRequest(findTestObject('api/management/countries/Get all countries', [('baseUrl') : GlobalVariable.baseUrl
-            , ('token') : GlobalVariable.token]))
+GetAllCountries = WS.sendRequest(findTestObject('Version_1/Wajeez_Payments/v1/countries/Get all countries', [('baseUrl') : GlobalVariable.baseUrl
+            , ('token') : GlobalVariable.token, ('version') : GlobalVariable.version]))
 
 def GetAllCountriesSlurper = new groovy.json.JsonSlurper()
 
@@ -86,9 +86,9 @@ println(countryID)
 WS.verifyResponseStatusCode(GetAllCountries, 200)
 
 ///////////////////////////////////////////////////////////
-EditExistingCountry = WS.sendRequest(findTestObject('api/management/countries/Edit existing country', [('baseUrl') : GlobalVariable.baseUrl
+EditExistingCountry = WS.sendRequest(findTestObject('Version_1/Wajeez_Payments/v1/countries/Edit existing country', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token, ('CountryID') : GlobalVariable.CountryID, ('CountryName') : GlobalVariable.CountryName
-            , ('CountryRegion') : GlobalVariable.CountryRegion]))
+            , ('CountryRegion') : GlobalVariable.CountryRegion, ('version') : GlobalVariable.version]))
 
 def EditExistingCountrySlurper = new groovy.json.JsonSlurper()
 
@@ -99,9 +99,8 @@ println(EditExistingCountryResult)
 WS.verifyResponseStatusCode(EditExistingCountry, 200)
 
 ////////////////////////////////////////////////////////////
-
-InvalidCreateNewCountry = WS.sendRequestAndVerify(findTestObject('api/management/countries/Invalid Create new country', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('null') : GlobalVariable.Null  , ('token') : GlobalVariable.token]))
+InvalidCreateNewCountry = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/countries/Invalid Create new country', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('null') : GlobalVariable.Null, ('token') : GlobalVariable.token, ('version') : GlobalVariable.version]))
 
 def InvalidCreateNewCountrySlurper = new groovy.json.JsonSlurper()
 

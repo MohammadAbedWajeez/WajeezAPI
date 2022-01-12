@@ -17,8 +17,8 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('api/management/account/authenticate/Authenticate user using Email and Password', 
-        [('baseUrl') : GlobalVariable.baseUrl]))
+AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('version_1/Wajeez_Identity/account/authenticate/Authenticate user using Email and Password', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
 
 def AuthenticateUserUsingEmailAndPasswordSlurper = new groovy.json.JsonSlurper()
 
@@ -31,47 +31,50 @@ GlobalVariable.token = Token
 WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
 
 /////////////////////////////////////////////////////////////////////////
-CreateNewFeature = WS.sendRequestAndVerify(findTestObject('api/management/features/Create new feature', [('baseUrl') : GlobalVariable.baseUrl
-            , ('token') : GlobalVariable.token]))
-
-def CreateNewFeatureSlurper = new groovy.json.JsonSlurper()
-
-def CreateNewFeatureResult = CreateNewFeatureSlurper.parseText(CreateNewFeature.getResponseBodyContent())
-
-println(CreateNewFeatureResult)
-
-def FeatureID = CreateNewFeatureResult.data
-
-GlobalVariable.FeatureID = FeatureID
-
-WS.verifyResponseStatusCode(CreateNewFeature, 200)
-
-/////////////////////////////////////////////////////////////////////////
-EditExistingFeature = WS.sendRequestAndVerify(findTestObject('api/management/features/Edit existing feature', [('baseUrl') : GlobalVariable.baseUrl
-            , ('FeatureID') : GlobalVariable.FeatureID, ('token') : GlobalVariable.token]))
-
-def EditExistingFeatureSlurper = new groovy.json.JsonSlurper()
-
-def EditExistingFeatureResult = EditExistingFeatureSlurper.parseText(EditExistingFeature.getResponseBodyContent())
-
-println(EditExistingFeatureResult)
-
-WS.verifyResponseStatusCode(EditExistingFeature, 200)
+//CreateNewFeature = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/features/Create new feature', [('baseUrl') : GlobalVariable.baseUrl
+//            , ('version') : GlobalVariable.version, ('token') : GlobalVariable.token]))
+//
+//def CreateNewFeatureSlurper = new groovy.json.JsonSlurper()
+//
+//def CreateNewFeatureResult = CreateNewFeatureSlurper.parseText(CreateNewFeature.getResponseBodyContent())
+//
+//println(CreateNewFeatureResult)
+//
+//def FeatureID = CreateNewFeatureResult.data
+//
+//GlobalVariable.FeatureID = FeatureID
+//
+//WS.verifyResponseStatusCode(CreateNewFeature, 200)
 
 /////////////////////////////////////////////////////////////////////////
-GetAllPlans = WS.sendRequestAndVerify(findTestObject('api/management/plans/GetAllPlans', [('baseUrl') : GlobalVariable.baseUrl
-            , ('token') : GlobalVariable.token]))
+//EditExistingFeature = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/features/Edit existing feature', [
+//            ('baseUrl') : GlobalVariable.baseUrl, ('FeatureID') : GlobalVariable.FeatureID, ('token') : GlobalVariable.token
+//            , ('version') : GlobalVariable.version]))
+//
+//def EditExistingFeatureSlurper = new groovy.json.JsonSlurper()
+//
+//def EditExistingFeatureResult = EditExistingFeatureSlurper.parseText(EditExistingFeature.getResponseBodyContent())
+//
+//println(EditExistingFeatureResult)
+//
+//WS.verifyResponseStatusCode(EditExistingFeature, 200)
+
+/////////////////////////////////////////////////////////////////////////
+GetAllPlans = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/plans/GetAllPlans', [('baseUrl') : GlobalVariable.baseUrl
+            , ('token') : GlobalVariable.token, ('version') : GlobalVariable.version, ('token') : GlobalVariable.token]))
 
 def GetAllPlansSlurper = new groovy.json.JsonSlurper()
 
 def GetAllPlansResult = GetAllPlansSlurper.parseText(GetAllPlans.getResponseBodyContent())
+println (GetAllPlansResult)
 
 def PlanID = GetAllPlansResult.data[0].id
 
 GlobalVariable.PlanID = PlanID
 
-AssignFeatureToPlan = WS.sendRequestAndVerify(findTestObject('api/management/features/Assign Feature To Plan', [('baseUrl') : GlobalVariable.baseUrl
-            , ('PlanID') : GlobalVariable.PlanID, ('FeatureID') : GlobalVariable.FeatureID, ('token') : GlobalVariable.token]))
+AssignFeatureToPlan = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/features/Assign Feature To Plan', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('PlanID') : GlobalVariable.PlanID, ('FeatureID') : GlobalVariable.FeatureID
+            , ('token') : GlobalVariable.token, ('version') : GlobalVariable.version]))
 
 def AssignFeatureToPlanSlurper = new groovy.json.JsonSlurper()
 
@@ -82,24 +85,25 @@ println(AssignFeatureToPlanResult)
 WS.verifyResponseStatusCode(AssignFeatureToPlan, 200)
 
 /////////////////////////////////////////////////////////////////////////
-GetAllFeatures = WS.sendRequestAndVerify(findTestObject('api/management/features/Get all features', [('baseUrl') : GlobalVariable.baseUrl
-            , ('token') : GlobalVariable.token]))
+GetAllFeatures = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/features/Get all features', [('baseUrl') : GlobalVariable.baseUrl
+            , ('token') : GlobalVariable.token, ('version') : GlobalVariable.version]))
 
 WS.verifyResponseStatusCode(GetAllFeatures, 200)
 
-GetFeaturesById = WS.sendRequestAndVerify(findTestObject('api/management/features/Get feature by id', [('baseUrl') : GlobalVariable.baseUrl
-            , ('FeatureID') : GlobalVariable.FeatureID, ('token') : GlobalVariable.token]))
+GetFeaturesById = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/features/Get feature by id', [('baseUrl') : GlobalVariable.baseUrl
+            , ('FeatureID') : GlobalVariable.FeatureID, ('token') : GlobalVariable.token, ('version') : GlobalVariable.version]))
 
 WS.verifyResponseStatusCode(GetFeaturesById, 200)
 
-GetFeatureByPlanId = WS.sendRequestAndVerify(findTestObject('api/management/features/GetFeatureByPlanId', [('baseUrl') : GlobalVariable.baseUrl
-            , ('PlanID') : GlobalVariable.PlanID, ('token') : GlobalVariable.token]))
+GetFeatureByPlanId = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/features/GetFeatureByPlanId', [('baseUrl') : GlobalVariable.baseUrl
+            , ('PlanID') : GlobalVariable.PlanID, ('token') : GlobalVariable.token, ('version') : GlobalVariable.version]))
 
 WS.verifyResponseStatusCode(GetFeatureByPlanId, 200)
 
 /////////////////////////////////////////////////////////////////////////
-UnAssignFeatureByPlanId = WS.sendRequestAndVerify(findTestObject('api/management/features/UnAssignFeatureToPlan', [('baseUrl') : GlobalVariable.baseUrl
-            , ('PlanID') : GlobalVariable.PlanID, ('FeatureID') : GlobalVariable.FeatureID, ('token') : GlobalVariable.token]))
+UnAssignFeatureByPlanId = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/features/UnAssignFeatureToPlan', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('PlanID') : GlobalVariable.PlanID, ('FeatureID') : GlobalVariable.FeatureID
+            , ('token') : GlobalVariable.token, ('version') : GlobalVariable.version]))
 
 def UnAssignFeatureByPlanIdSlurper = new groovy.json.JsonSlurper()
 
@@ -110,9 +114,8 @@ println(UnAssignFeatureByPlanIdResult)
 WS.verifyResponseStatusCode(UnAssignFeatureByPlanId, 200)
 
 /////////////////////////////////////////////////////////////////////////
-
-DeleteFeature = WS.sendRequestAndVerify(findTestObject('api/management/features/Delete feature', [('baseUrl') : GlobalVariable.baseUrl
-            , ('FeatureID') : GlobalVariable.FeatureID, ('token') : GlobalVariable.token]))
+DeleteFeature = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/features/Delete feature', [('baseUrl') : GlobalVariable.baseUrl
+            , ('FeatureID') : GlobalVariable.FeatureID, ('token') : GlobalVariable.token, ('version') : GlobalVariable.version]))
 
 def DeleteFeatureSlurper = new groovy.json.JsonSlurper()
 
@@ -123,9 +126,9 @@ println(DeleteFeatureResult)
 WS.verifyResponseStatusCode(DeleteFeature, 200)
 
 /////////////////////////////////////////////////////////////////////////
+InvalidCreateNewFeature = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/features/Create new feature', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token, ('version') : GlobalVariable.version]))
 
-InvalidCreateNewFeature = WS.sendRequestAndVerify(findTestObject('api/management/features/Create new feature', [('baseUrl') : GlobalVariable.baseUrl
-            , ('token') : GlobalVariable.token]))
 def InvalidCreateNewFeatureSlurper = new groovy.json.JsonSlurper()
 
 def InvalidCreateNewFeatureResult = InvalidCreateNewFeatureSlurper.parseText(InvalidCreateNewFeature.getResponseBodyContent())
@@ -135,5 +138,5 @@ println(InvalidCreateNewFeatureResult)
 //def FeatureID = InvalidCreateNewFeatureResult.data
 //
 //GlobalVariable.FeatureID = FeatureID
-
 WS.verifyResponseStatusCode(CreateNewFeature, 200)
+

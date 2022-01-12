@@ -17,7 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('api/management/account/authenticate/Authenticate user using Email and Password', 
+AuthenticateUserUsingEmailAndPassword = WS.sendRequest(findTestObject('api/payment/${Version}/account/authenticate/Authenticate user using Email and Password', 
         [('baseUrl') : GlobalVariable.baseUrl]))
 
 def AuthenticateUserUsingEmailAndPasswordSlurper = new groovy.json.JsonSlurper()
@@ -32,7 +32,7 @@ WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
 
 ///////////////////////////////////////////////////////////////////
 
-GetAllLanguages = WS.sendRequestAndVerify(findTestObject('api/management/languages/Get all languages', [('baseUrl') : GlobalVariable.baseUrl
+GetAllLanguages = WS.sendRequestAndVerify(findTestObject('api/payment/${Version}/languages/Get all languages', [('baseUrl') : GlobalVariable.baseUrl
             , ('token') : GlobalVariable.token]))
 
 WS.verifyResponseStatusCode(GetAllLanguages, 200)
@@ -48,7 +48,7 @@ LanguageCode = ('LA' + ((Math.random() * 100) as int))
 GlobalVariable.LanguageCode = LanguageCode
 
 
-CreateNewLanguage = WS.sendRequest(findTestObject('api/management/languages/Create new language', [('baseUrl') : GlobalVariable.baseUrl
+CreateNewLanguage = WS.sendRequest(findTestObject('api/payment/${Version}/languages/Create new language', [('baseUrl') : GlobalVariable.baseUrl
             , ('LanguageName') : GlobalVariable.LanguageName, ('LanguageCode') : GlobalVariable.LanguageCode, ('token') : GlobalVariable.token]))
 
 
@@ -65,7 +65,7 @@ WS.verifyResponseStatusCode(CreateNewLanguage, 200)
 
 ///////////////////////////////////////////////////////////////////
 
-EditLanguage = WS.sendRequest(findTestObject('api/management/languages/Edit language', [('baseUrl') : GlobalVariable.baseUrl
+EditLanguage = WS.sendRequest(findTestObject('api/payment/${Version}/languages/Edit language', [('baseUrl') : GlobalVariable.baseUrl
             , ('EditLanguageName') : GlobalVariable.EditLanguageName, ('token') : GlobalVariable.token]))
 
 def EditLanguageSlurper = new groovy.json.JsonSlurper()
