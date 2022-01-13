@@ -63,6 +63,13 @@
       <masked>false</masked>
       <name>version</name>
    </variables>
+   <variables>
+      <defaultValue>GlobalVariable.BlockedUserId</defaultValue>
+      <description></description>
+      <id>2bad5167-c6f0-4b8c-a7ff-d1bcab33f5f3</id>
+      <masked>false</masked>
+      <name>BlockedUserId</name>
+   </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject

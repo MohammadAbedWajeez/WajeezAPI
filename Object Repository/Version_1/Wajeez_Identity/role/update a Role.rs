@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Add pr update a Role</name>
+   <name>update a Role</name>
    <tag></tag>
-   <elementGuidId>1c42f9d7-c81d-4e79-b91e-a0d0cd62d9fe</elementGuidId>
+   <elementGuidId>9df70ece-64d8-4735-8d92-707cef552f81</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>0</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n \&quot;name\&quot;: \&quot;${RandomRoleName}\&quot;,\n \&quot;id\&quot;: \&quot;${ContentManagerID}\&quot;,\n \&quot;description\&quot;: null\n}&quot;,
+  &quot;text&quot;: &quot;{\n \&quot;name\&quot;: \&quot;${RandomRoleName}\&quot;,\n \&quot;id\&quot;: \&quot;${NewRoleID}\&quot;,\n \&quot;description\&quot;: null\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -57,11 +57,11 @@
       <name>baseUrl</name>
    </variables>
    <variables>
-      <defaultValue>GlobalVariable.ContentManagerID</defaultValue>
+      <defaultValue>GlobalVariable.NewRoleID</defaultValue>
       <description></description>
       <id>31e2b5ac-6410-4b95-b9ad-3827278bc5e6</id>
       <masked>false</masked>
-      <name>ContentManagerID</name>
+      <name>NewRoleID</name>
    </variables>
    <variables>
       <defaultValue>GlobalVariable.RandomRoleName</defaultValue>

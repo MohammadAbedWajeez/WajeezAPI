@@ -46,7 +46,7 @@ GlobalVariable.RegisterUserPassword = RegisterUserPassword
 
 RegisterTheUserUsingEmailAndPassword = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/Register the user using email and password', 
         [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('randomBodyEmail') : GlobalVariable.randomBodyEmail
-            , ('$randomHexColor') : GlobalVariable.randomHexColor, ('$randomFirstName') : GlobalVariable.randomFirstName]))
+            , ('RegisterUserPassword') : GlobalVariable.RegisterUserPassword]))
 
 def RegisterTheUserUsingEmailAndPasswordslurper = new groovy.json.JsonSlurper()
 
@@ -69,7 +69,7 @@ GlobalVariable.UserRegisteredID = UserRegisteredID
 println(Token)
 
 BlockForTheRequestedUser = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/Block for the requested user', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('${UserRegisteredID}') : GlobalVariable.UserRegisteredID]))
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('token') : GlobalVariable.token, ('UserRegisteredID') : GlobalVariable.UserRegisteredID]))
 
 def BlockForTheRequestedUserslurper = new groovy.json.JsonSlurper()
 
@@ -81,7 +81,7 @@ WS.verifyResponseStatusCode(BlockForTheRequestedUser, 200)
 
 //block again
 BlockForTheRequestedUseragain = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/Block for the requested user', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('${UserRegisteredID}') : GlobalVariable.UserRegisteredID]))
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('UserRegisteredID') : GlobalVariable.UserRegisteredID, ('token') : GlobalVariable.token]))
 
 def BlockForTheRequestedUseragainslurper = new groovy.json.JsonSlurper()
 
@@ -98,7 +98,7 @@ WS.verifyResponseStatusCode(BlockForTheRequestedUseragain, 400)
 ///////////////////////////////////////////////////////////////////////////////////
 // Get registered user and verify blocker
 GetUserDetailsUsingUserId = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/{user Id}/Get user details using his id', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('token') : GlobalVariable.token, ('UserRegisteredID') : GlobalVariable.UserRegisteredID]))
 
 def GetUserDetailsUsingUserIdSlurper = new groovy.json.JsonSlurper()
 
@@ -115,7 +115,7 @@ WS.verifyResponseStatusCode(GetUserDetailsUsingUserId, 200)
 ////////////////////////////////////////////////////////////////////////////////////
 //Unblock the blocked user
 UnBlockForTheRequestedUser = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/Un Block for the requested user', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('token') : GlobalVariable.token, ('BlockedUserId') : GlobalVariable.BlockedUserId]))
 
 def UnBlockForTheRequestedUserSlurper = new groovy.json.JsonSlurper()
 
@@ -127,7 +127,7 @@ WS.verifyResponseStatusCode(UnBlockForTheRequestedUser, 200)
 
 //Unblock Again
 UnBlockForTheRequestedUserAgain = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/Un Block for the requested user', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('token') : GlobalVariable.token]))
 
 def UnBlockForTheRequestedUserAgainSlurper = new groovy.json.JsonSlurper()
 
@@ -144,7 +144,7 @@ WS.verifyResponseStatusCode(UnBlockForTheRequestedUserAgain, 400)
 ///////////////////////////////////////////////////////////////////////////////////
 //Recall unblocked registered user
 GetUserDetailsUsingUserIdafter = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/{user Id}/Get user details using his id', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('token') : GlobalVariable.token]))
 
 def GetUserDetailsUsingUserIdafterSlurper = new groovy.json.JsonSlurper()
 
@@ -158,7 +158,7 @@ WS.verifyResponseStatusCode(GetUserDetailsUsingUserIdafter, 200)
 //Register User withput filling password scenarios
 UN_RegisterTheUserUsingEmailAndPassword = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/Register the user using email and password', 
         [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('randomBodyEmail') : GlobalVariable.randomBodyEmail
-            , ('$randomHexColor') : GlobalVariable.randomHexColor, ('$randomFirstName') : GlobalVariable.randomFirstName]))
+            , ('RegisterUserPassword') : GlobalVariable.RegisterUserPassword]))
 
 def UN_RegisterTheUserUsingEmailAndPasswordSlurper = new groovy.json.JsonSlurper()
 
@@ -171,7 +171,7 @@ def ErrorMessage = UN_RegisterTheUserUsingEmailAndPasswordResult.errors[0].messa
 
 println(ErrorMessage)
 
-assertThat('Email Already Exist').isEqualTo(ErrorMessage)
+assertThat('هذا الايميل مستخدم مسبقا').isEqualTo(ErrorMessage)
 
 WS.verifyResponseStatusCode(UN_RegisterTheUserUsingEmailAndPassword, 400)
 

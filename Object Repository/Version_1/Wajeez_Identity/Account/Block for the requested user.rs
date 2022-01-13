@@ -68,7 +68,7 @@
       <description></description>
       <id>3315f6e0-de93-4b0d-a9a9-58e1cde2c682</id>
       <masked>false</masked>
-      <name>${UserRegisteredID}</name>
+      <name>UserRegisteredID</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

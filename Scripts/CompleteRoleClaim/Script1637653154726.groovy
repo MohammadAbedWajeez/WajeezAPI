@@ -45,7 +45,7 @@ WS.verifyResponseStatusCode(AddRoleNull, 200)
 ///////////////////////////////////////////////////////////////////////////////
 
 AddRoleClaim = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Identity/Role Claim/Add or update a Role Claim', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('NewEmptyRoleId') : GlobalVariable.NewEmptyRoleId, ('token') : GlobalVariable.token]))
+        [('baseUrl') : GlobalVariable.baseUrl, ('NewEmptyRoleId') : GlobalVariable.NewEmptyRoleId, ('token') : GlobalVariable.token, ('version') : GlobalVariable.version]))
 def AddRoleClaimSlurper = new groovy.json.JsonSlurper()
 def AddRoleClaimResult = AddRoleClaimSlurper.parseText(AddRoleClaim.getResponseBodyContent())
 WS.verifyResponseStatusCode(AddRoleClaim, 200)

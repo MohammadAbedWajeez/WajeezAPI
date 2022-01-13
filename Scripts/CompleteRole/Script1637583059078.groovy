@@ -33,8 +33,8 @@ WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
 
 RandomRoleName = ('RoleName' + ((Math.random() * 1000) as int))
 GlobalVariable.RandomRoleName = RandomRoleName
-AddOrUpdateRole = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Identity/role/Add pr update a Role', [('baseUrl') : GlobalVariable.baseUrl
-	, ('db126f9e-3245-4c15-b812-d13240f26bae') : GlobalVariable.ContentManagerID, ('token') : GlobalVariable.token, ('RandomRoleName') : GlobalVariable.RandomRoleName]))
+AddOrUpdateRole = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Identity/role/Add a Role', [('baseUrl') : GlobalVariable.baseUrl
+	, ('token') : GlobalVariable.token, ('RandomRoleName') : GlobalVariable.RandomRoleName]))
 
 def AddOrUpdateRoleSlurper = new groovy.json.JsonSlurper()
 def AddOrUpdateRoleResult = AddOrUpdateRoleSlurper.parseText(AddOrUpdateRole.getResponseBodyContent())
@@ -53,14 +53,14 @@ def GetAllRolesSlurper = new groovy.json.JsonSlurper()
 def GetAllRolesResult = GetAllRolesSlurper.parseText(GetAllRoles.getResponseBodyContent())
 println(GetAllRolesResult)
 //def ContentManagerID = GetAllRolesResult.hasProperty("ContentManager")
-def ContentManagerID = GetAllRolesResult.data[13].id
-//assertThat(ContentManagerID).isEqualTo('646b33f2-c3a0-4061-85ff-48d2178899e4')
-def AudioManagerID = GetAllRolesResult.data[0].id
-assertThat(AudioManagerID).isEqualTo('26a8e7b5-17af-481d-bb12-4898fcc85e12')
-def ContentOfficerID = GetAllRolesResult.data[1].id
-assertThat(ContentOfficerID).isEqualTo('05ce4999-a2d6-42b8-97cc-f4653e4fb8df')
-def AudioOfficerID = GetAllRolesResult.data[2].id
-//assertThat(AudioOfficerID).isEqualTo('a71b663f-6de2-479e-9823-1833879a2948')
+def ContentManagerID = GetAllRolesResult.data[0].id
+assertThat(ContentManagerID).isEqualTo('6ccd426e-d9df-44c6-89aa-41821bf9cbbc')
+def AudioManagerID = GetAllRolesResult.data[1].id
+assertThat(AudioManagerID).isEqualTo('45b63fb6-b739-4895-ab1e-324230f45683')
+def ContentOfficerID = GetAllRolesResult.data[2].id
+assertThat(ContentOfficerID).isEqualTo('61ee3fce-0f15-4e5b-8ffd-f8b4565ed40f')
+def AudioOfficerID = GetAllRolesResult.data[3].id
+assertThat(AudioOfficerID).isEqualTo('dedc6749-14e1-4f3a-b568-f2f4accea671')
 GlobalVariable.ContentManagerID = ContentManagerID
 GlobalVariable.AudioManagerID = AudioManagerID
 GlobalVariable.ContentOfficerID = ContentOfficerID

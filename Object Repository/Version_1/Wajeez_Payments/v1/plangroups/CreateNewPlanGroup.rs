@@ -47,7 +47,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>${baseUrl}/api/payment/${Version}/plangroups</restUrl>
+   <restUrl>${baseUrl}/api/payment/v${version}/plangroups</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -69,6 +69,13 @@
       <id>2d0f2043-5cb2-4270-819c-6874c624d9a2</id>
       <masked>false</masked>
       <name>PlanGroupName</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.version</defaultValue>
+      <description></description>
+      <id>120f8d45-3e00-492c-8ab9-8712a57e3bf4</id>
+      <masked>false</masked>
+      <name>version</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

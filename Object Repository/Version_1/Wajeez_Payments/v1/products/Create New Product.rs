@@ -57,11 +57,11 @@
       <name>baseUrl</name>
    </variables>
    <variables>
-      <defaultValue>GlobalVariable.$randomProductName</defaultValue>
+      <defaultValue>GlobalVariable.RandomProductName</defaultValue>
       <description></description>
       <id>6305c415-2583-40ce-b7e6-79e1ac981872</id>
       <masked>false</masked>
-      <name>$randomProductName</name>
+      <name>RandomProductName</name>
    </variables>
    <variables>
       <defaultValue>GlobalVariable.version</defaultValue>

@@ -324,4 +324,9 @@
       <initValue>1</initValue>
       <name>version</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>NewRoleID</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

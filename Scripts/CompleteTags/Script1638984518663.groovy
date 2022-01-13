@@ -37,7 +37,8 @@ TagName = ('Tags' + ((Math.random() * 100) as int))
 
 GlobalVariable.TagName = TagName
 
-CreateNewTag = WS.sendRequestAndVerify(findTestObject('api/content/v1/Tags', [('NewBase') : GlobalVariable.NewBase, ('TagName') : GlobalVariable.TagName, ('token') : GlobalVariable.token]))
+CreateNewTag = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Logging/Tags/Create new tag', [('baseUrl') : GlobalVariable.baseUrl
+            , ('version') : GlobalVariable.version, ('token') : GlobalVariable.token, ('TagName') : GlobalVariable.TagName]))
 
 def CreateNewTagSlurper = new JsonSlurper()
 
@@ -56,8 +57,8 @@ GlobalVariable.EditTagID = EditTagID
 WS.verifyResponseStatusCode(CreateNewTag, 200)
 
 /////////////////////////////////////////////////////////////////////////
-EditTag = WS.sendRequestAndVerify(findTestObject('/api/content/v1/Tags', [('NewBase') : GlobalVariable.NewBase, ('EditTagID') : GlobalVariable.EditTagID
-            , ('TagID') : GlobalVariable.TagID, ('token') : GlobalVariable.token]))
+EditTag = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Logging/Tags/Edit tag', [('NewBase') : GlobalVariable.NewBase
+            , ('TagName') : GlobalVariable.TagName, ('EditTagID') : GlobalVariable.EditTagID, ('token') : GlobalVariable.token]))
 
 def EditTagSlurper = new JsonSlurper()
 
@@ -68,8 +69,8 @@ println(EditTagResult)
 WS.verifyResponseStatusCode(EditTag, 200)
 
 /////////////////////////////////////////////////////////////////////////
-GetAllTags = WS.sendRequestAndVerify(findTestObject('/api/content/v1/Tags', [('NewBase') : GlobalVariable.NewBase
-            , ('token') : GlobalVariable.token]))
+GetAllTags = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Logging/Tags/Get all tags', [('baseUrl') : GlobalVariable.baseUrl
+            , ('version') : GlobalVariable.version]))
 
 def GetAllTagsSlurper = new JsonSlurper()
 
@@ -80,8 +81,7 @@ println(GetAllTagsResult)
 WS.verifyResponseStatusCode(GetAllTags, 200)
 
 /////////////////////////////////////////////////////////////////////////
-GetContentitems = WS.sendRequestAndVerify(findTestObject('/api/content/v1/Tags/GetContentItems', [('NewBase') : GlobalVariable.NewBase
-            , ('token') : GlobalVariable.token]))
+GetContentitems = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Logging/Tags/GetContentItems', [('baseUrl') : GlobalVariable.baseUrl]))
 
 def GetContentitemsSlurper = new JsonSlurper()
 
@@ -96,8 +96,8 @@ NewBookContentItem = ('BookContentItem' + ((Math.random() * 100) as int))
 
 GlobalVariable.NewBookContentItem = NewBookContentItem
 
-CreateNewBookContentItem = WS.sendRequestAndVerify(findTestObject('/api/content/v1/contents/Create new book content item', 
-        [('NewBase') : GlobalVariable.NewBase, ('token') : GlobalVariable.token, ('NewBookContentItem') : GlobalVariable.NewBookContentItem]))
+CreateNewBookContentItem = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Content/Collections/Create new book content item', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('NewBookContentItem') : GlobalVariable.NewBookContentItem]))
 
 def CreateNewBookContentItemSlurper = new JsonSlurper()
 
@@ -112,8 +112,8 @@ println(CreateNewBookContentItemResult)
 WS.verifyResponseStatusCode(CreateNewBookContentItem, 200)
 
 /////////////////////////////////////////////////////////////////////////
-AssignTagsToContentItem = WS.sendRequestAndVerify(findTestObject('/api/content/v1/Tags/assign', [('NewBase') : GlobalVariable.NewBase
-            , ('ContentItemID') : GlobalVariable.ContentItemID, ('TagID') : GlobalVariable.TagID, ('token') : GlobalVariable.token]))
+AssignTagsToContentItem = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Logging/Tags/Assign tags to a Content Item', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
 
 def AssignTagsToContentItemSlurper = new JsonSlurper()
 
@@ -124,9 +124,8 @@ println(AssignTagsToContentItemResult)
 WS.verifyResponseStatusCode(AssignTagsToContentItem, 200)
 
 /////////////////////////////////////////////////////////////////////////
-
-UnAssignTagFromContent = WS.sendRequestAndVerify(findTestObject('/api/content/v1/Tags/un-assign', 
-        [('NewBase') : GlobalVariable.NewBase, ('ContentItemID') : GlobalVariable.ContentItemID, ('TagID') : GlobalVariable.TagID, ('token') : GlobalVariable.token]))
+UnAssignTagFromContent = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Logging/Tags/Un-Assign tags from a Content Item', 
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
 
 def UnAssignTagFromContentSlurper = new JsonSlurper()
 
@@ -135,3 +134,4 @@ def UnAssignTagFromContentResult = UnAssignTagFromContentSlurper.parseText(UnAss
 println(UnAssignTagFromContentResult)
 
 WS.verifyResponseStatusCode(UnAssignTagFromContent, 200)
+

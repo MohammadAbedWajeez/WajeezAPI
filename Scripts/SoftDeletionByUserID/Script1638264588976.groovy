@@ -78,7 +78,7 @@ WS.verifyResponseStatusCode(CheckEmailValidityAndExistenceEmailExist, 200)
 
 /////////////////////////////////////////////////////////////////////////////
 GetUserDetailsUsingUserId = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/{user Id}/Get user details using his id', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('UserRegisteredID') : GlobalVariable.UserRegisteredID, ('token') : GlobalVariable.token]))
 
 def GetUserDetailsUsingUserIdSlurper = new groovy.json.JsonSlurper()
 
@@ -92,7 +92,7 @@ WS.verifyResponseStatusCode(GetUserDetailsUsingUserId, 200)
 
 ////////////////////////////////////////////////////////////
 SoftDeletionOfTheRequestedUser = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Identity/Account/Soft deletion of the current user', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('UserRegisteredID') : GlobalVariable.UserRegisteredID, ('token') : GlobalVariable.token]))
 
 def SoftDeletionOfTheRequestedUserSlurper = new groovy.json.JsonSlurper()
 
@@ -106,7 +106,7 @@ WS.verifyResponseStatusCode(SoftDeletionOfTheRequestedUser, 200)
 println(UserRegisteredID)
 
 GetUserDetailsUsingUserIdII = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/{user Id}/Get user details using his id', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('UserRegisteredID') : GlobalVariable.UserRegisteredID, ('token') : GlobalVariable.token]))
 
 def GetUserDetailsUsingUserIdIISlurper = new groovy.json.JsonSlurper()
 
@@ -114,7 +114,7 @@ def GetUserDetailsUsingUserIdIIResult = GetUserDetailsUsingUserIdIISlurper.parse
 
 println(GetUserDetailsUsingUserIdIIResult)
 
-Userdataafterdelete = GetUserDetailsUsingUserIdIIResult.data
+Userdataafterdelete = GetUserDetailsUsingUserIdIIResult.data.id
 
 if (Userdataafterdelete == null) {
     println(' The User was deleted successfuly')

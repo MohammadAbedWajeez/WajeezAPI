@@ -63,6 +63,13 @@
       <masked>false</masked>
       <name>version</name>
    </variables>
+   <variables>
+      <defaultValue>GlobalVariable.UserRegisteredID</defaultValue>
+      <description></description>
+      <id>7d75f6d2-084a-4dc7-afcc-be4e4edbcd5e</id>
+      <masked>false</masked>
+      <name>UserRegisteredID</name>
+   </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject

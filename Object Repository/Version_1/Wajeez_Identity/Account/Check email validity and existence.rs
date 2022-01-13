@@ -40,7 +40,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${baseUrl}/api/identity/v${version}/Account/check-email?email=</restUrl>
+   <restUrl>${baseUrl}/api/identity/v${version}/Account/check-email?email=wawewawewawe@wajeez.co</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>

@@ -32,7 +32,7 @@ WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
 
 ///////////////////////////////////////////////////////////
 GetAllPlanGroups = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/plangroups/GetAllPlanGroups', [('baseUrl') : GlobalVariable.baseUrl
-            , ('token') : GlobalVariable.token]))
+            , ('token') : GlobalVariable.token, ('version') : GlobalVariable.version]))
 
 def GetAllPlanGroupsSlurper = new groovy.json.JsonSlurper()
 
@@ -54,7 +54,7 @@ PlanName = ('PlanName' + ((Math.random() * 1000) as int))
 GlobalVariable.PlanName = PlanName
 
 CreateNewPlan = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/plans/CreateNewPlan', [('baseUrl') : GlobalVariable.baseUrl
-            , ('token') : GlobalVariable.token, ('PlanName') : GlobalVariable.PlanName, ('PlanGroupId') : GlobalVariable.PlanGroupId]))
+            , ('token') : GlobalVariable.token, ('PlanName') : GlobalVariable.PlanName, ('PlanGroupId') : GlobalVariable.PlanGroupId, ('version') : GlobalVariable.version]))
 
 def CreateNewPlanSlurper = new groovy.json.JsonSlurper()
 
@@ -74,7 +74,7 @@ def GetAllPlansResult = GetAllPlansSlurper.parseText(GetAllPlans.getResponseBody
 
 println(GetAllPlansResult)
 
-def PlanId = GetAllPlansResult.data[1].id
+def PlanId = GetAllPlansResult.data[0].id
 
 GlobalVariable.PlanID = PlanId
 

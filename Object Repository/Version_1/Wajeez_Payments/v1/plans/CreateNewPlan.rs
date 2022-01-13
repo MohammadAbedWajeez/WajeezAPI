@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;groupId\&quot;: ${PlanGroupId},\n  \&quot;planProfiles\&quot;: [\n    {\n      \&quot;languageId\&quot;: 4,\n      \&quot;name\&quot;: \&quot;${PlanName}\&quot;\n    }\n  ]\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;groupId\&quot;: ${PlanGroupId},\n  \&quot;planProfiles\&quot;: [\n    {\n      \&quot;languageId\&quot;: 1,\n      \&quot;name\&quot;: \&quot;${PlanName}\&quot;\n    }\n  ]\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>

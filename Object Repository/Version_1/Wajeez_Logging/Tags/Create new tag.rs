@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;name\&quot;: \&quot;Duis\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;name\&quot;: \&quot;${TagName}\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -62,6 +62,13 @@
       <id>957d2f5d-e1a6-4626-afb7-e4aa34a4461d</id>
       <masked>false</masked>
       <name>version</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.TagName</defaultValue>
+      <description></description>
+      <id>bf8ee34c-6e30-481f-84a6-41a6cf354162</id>
+      <masked>false</masked>
+      <name>TagName</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

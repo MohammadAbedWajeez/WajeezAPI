@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;email\&quot;: \&quot;${randomBodyEmail}\&quot;,\n    \&quot;password\&quot;: \&quot;${$randomHexColor}\&quot;,\n    \&quot;referralCode\&quot;: \&quot;${$randomFirstName}\&quot;,\n    \&quot;deviceDetails\&quot;: {\n        \&quot;applicationVersion\&quot;: \&quot;voluptate incididunt in\&quot;,\n        \&quot;deviceMaker\&quot;: \&quot;do eu\&quot;,\n        \&quot;modelName\&quot;: \&quot;consequat Lorem id reprehenderit\&quot;,\n        \&quot;operatingSystem\&quot;: 3,\n        \&quot;operatingSystemVersion\&quot;: \&quot;qui pariatur incididunt\&quot;\n    }\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;email\&quot;: \&quot;${randomBodyEmail}\&quot;,\n    \&quot;password\&quot;: \&quot;${RegisterUserPassword}\&quot;\n    \n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -71,18 +71,18 @@
       <name>randomBodyEmail</name>
    </variables>
    <variables>
-      <defaultValue>GlobalVariable.randomHexColor</defaultValue>
+      <defaultValue>GlobalVariable.RegisterUserPassword</defaultValue>
       <description></description>
       <id>9810fdcd-9767-4e30-bdbb-0a97797d2abf</id>
       <masked>false</masked>
-      <name>$randomHexColor</name>
+      <name>RegisterUserPassword</name>
    </variables>
    <variables>
       <defaultValue>GlobalVariable.randomFirstName</defaultValue>
       <description></description>
       <id>ab9920eb-6a00-4fdb-934e-8ec67998cd73</id>
       <masked>false</masked>
-      <name>$randomFirstName</name>
+      <name>randomFirstName</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

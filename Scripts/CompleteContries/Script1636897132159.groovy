@@ -57,7 +57,7 @@ GlobalVariable.randomCurrencyCode = randomCurrencyCode
 CreateNewCountry = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Payments/v1/countries/Create new country', [
             ('baseUrl') : GlobalVariable.baseUrl, ('CountryName') : GlobalVariable.CountryName, ('CountryRegion') : GlobalVariable.CountryRegion
             , ('randomCurrencyCode') : GlobalVariable.randomCurrencyCode, ('randomCountryCode2') : GlobalVariable.randomCountryCode2
-            , ('randomCountryCode3') : GlobalVariable.randomCountryCode3, ('version') : GlobalVariable.version]))
+            , ('randomCountryCode3') : GlobalVariable.randomCountryCode3, ('version') : GlobalVariable.version, ('token') : GlobalVariable.token]))
 
 def CreateNewCountrySlurper = new groovy.json.JsonSlurper()
 
@@ -75,7 +75,7 @@ def GetAllCountriesSlurper = new groovy.json.JsonSlurper()
 
 def GetAllCountriesResult = GetAllCountriesSlurper.parseText(GetAllCountries.getResponseBodyContent())
 
-countryID = (GetAllCountriesResult.data.id[200])
+countryID = (GetAllCountriesResult.data.id[7])
 
 GlobalVariable.CountryID = countryID
 
