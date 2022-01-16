@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;languageId\&quot;: 0,\n  \&quot;numberOfBooks\&quot;: 2147483647,\n  \&quot;text\&quot;: \&quot;string\&quot;,\n  \&quot;icon\&quot;: \&quot;string\&quot;,\n  \&quot;savingText\&quot;: \&quot;string\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;languageId\&quot;: 1,\n  \&quot;numberOfBooks\&quot;: 5,\n  \&quot;text\&quot;: \&quot;test\&quot;,\n  \&quot;icon\&quot;: \&quot;${IconID}\&quot;,\n  \&quot;savingText\&quot;: \&quot;test\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -62,6 +62,13 @@
       <id>4fbe95c9-8d3e-4bee-a2c6-4c082e8f9333</id>
       <masked>false</masked>
       <name>version</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.IconID</defaultValue>
+      <description></description>
+      <id>e9de4f71-fce9-4d70-9d4d-6ac8f57f7714</id>
+      <masked>false</masked>
+      <name>IconID</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

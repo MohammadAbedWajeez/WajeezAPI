@@ -29,6 +29,7 @@ def Token = AuthenticateUserUsingEmailAndPasswordResult.data.token
 GlobalVariable.token = Token
 
 WS.verifyResponseStatusCode(AuthenticateUserUsingEmailAndPassword, 200)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 randomBodyEmail = (('wajeezTest' + ((Math.random() * 2000) as int)) + '@wajeez.co')
 
@@ -38,15 +39,19 @@ randomFirstName = ('TestRegisterUser' + ((Math.random() * 1000) as int))
 
 GlobalVariable.randomFirstName = randomFirstName
 
+RegisterUserPassword = "wajeez1234"
+GlobalVariable.RegisterUserPassword = RegisterUserPassword
+
 RegisterTheUserUusingEmailAndPassword = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Identity/Account/Register the user using email and password', 
         [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('randomBodyEmail') : GlobalVariable.randomBodyEmail
-            , ('$randomHexColor') : GlobalVariable.randomHexColor, ('$randomFirstName') : GlobalVariable.randomFirstName]))
+            , ('RegisterUserPassword') : GlobalVariable.RegisterUserPassword, ('$randomFirstName') : GlobalVariable.randomFirstName]))
 
 def RegisterTheUserUusingEmailAndPasswordSlurper = new groovy.json.JsonSlurper()
 
 def RegisterTheUserUusingEmailAndPasswordResult = RegisterTheUserUusingEmailAndPasswordSlurper.parseText(RegisterTheUserUusingEmailAndPassword.getResponseBodyContent())
 
 println(RegisterTheUserUusingEmailAndPasswordResult)
+
 
 //def UserRegisteredID = RegisterTheUserUusingEmailAndPasswordResult.data.id
 //
@@ -57,20 +62,27 @@ println(RegisterTheUserUusingEmailAndPasswordResult)
 //GlobalVariable.UserRegisteredID = UserRegisteredID
 //
 //GlobalVariable.UserRegisteredToken = UserRegisteredToken
+
+
 WS.verifyResponseStatusCode(RegisterTheUserUusingEmailAndPassword, 200)
-
+//////////////////////////////////////////////////////////////////////////////////////////
 CheckEmailValidityAndExistenceEmailExist = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/Check email validity and existence', 
-        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version]))
+        [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('randomBodyEmail') : GlobalVariable.randomBodyEmail, ('token') : GlobalVariable.token]))
+def CheckEmailValidityAndExistenceEmailExistSlurper = new groovy.json.JsonSlurper()
 
-WS.verifyResponseStatusCode(CheckEmailValidityAndExistenceEmailExist, 200)
+def CheckEmailValidityAndExistenceEmailExistResult = CheckEmailValidityAndExistenceEmailExistSlurper.parseText(CheckEmailValidityAndExistenceEmailExist.getResponseBodyContent())
 
+println(CheckEmailValidityAndExistenceEmailExistResult)
+WS.verifyResponseStatusCode(CheckEmailValidityAndExistenceEmailExist, 400)
+
+/////////////////////////////////////////////////////////////////////////////////////////
 RandomSuperEmail = (('wajeezTest' + ((Math.random() * 900) as int)) + '@wajeez.co')
 
 GlobalVariable.RandomSuperEmail = RandomSuperEmail
 
 def CreateAdminUsingemailAndPassword = WS.sendRequest(findTestObject('Version_1/Wajeez_Identity/Account/Create admin using email and password', 
         [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('RandomSuperEmail') : GlobalVariable.RandomSuperEmail
-            , ('randomFirstName') : GlobalVariable.randomFirstName]))
+            , ('randomFirstName') : GlobalVariable.randomFirstName, ('token') : GlobalVariable.token]))
 
 def CreateAdminUsingemailAndPasswordSlurper = new groovy.json.JsonSlurper()
 
@@ -78,5 +90,5 @@ def CreateAdminUsingemailAndPasswordResult = CreateAdminUsingemailAndPasswordSlu
 
 println(CreateAdminUsingemailAndPasswordResult)
 
-WS.verifyResponseStatusCode(CreateAdminUsingemailAndPassword, 200)
+WS.verifyResponseStatusCode(CreateAdminUsingemailAndPassword, 401)
 

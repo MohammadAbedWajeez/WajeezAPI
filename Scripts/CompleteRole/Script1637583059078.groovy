@@ -58,9 +58,9 @@ assertThat(ContentManagerID).isEqualTo('6ccd426e-d9df-44c6-89aa-41821bf9cbbc')
 def AudioManagerID = GetAllRolesResult.data[1].id
 assertThat(AudioManagerID).isEqualTo('45b63fb6-b739-4895-ab1e-324230f45683')
 def ContentOfficerID = GetAllRolesResult.data[2].id
-assertThat(ContentOfficerID).isEqualTo('61ee3fce-0f15-4e5b-8ffd-f8b4565ed40f')
+assertThat(ContentOfficerID).isEqualTo('dedc6749-14e1-4f3a-b568-f2f4accea671')
 def AudioOfficerID = GetAllRolesResult.data[3].id
-assertThat(AudioOfficerID).isEqualTo('dedc6749-14e1-4f3a-b568-f2f4accea671')
+assertThat(AudioOfficerID).isEqualTo('3dc577b1-77ae-44c0-8e54-3612c8768a19')
 GlobalVariable.ContentManagerID = ContentManagerID
 GlobalVariable.AudioManagerID = AudioManagerID
 GlobalVariable.ContentOfficerID = ContentOfficerID

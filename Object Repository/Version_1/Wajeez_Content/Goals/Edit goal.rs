@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;icon\&quot;: \&quot;amet\&quot;,\n    \&quot;savingText\&quot;: \&quot;ut consectetur do sit\&quot;,\n    \&quot;text\&quot;: \&quot;ut\&quot;,\n    \&quot;id\&quot;: \&quot;\&quot;,\n    \&quot;languageId\&quot;: -43408114,\n    \&quot;numberOfBooks\&quot;: -94197618\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;icon\&quot;: \&quot;${IconID}\&quot;,\n    \&quot;savingText\&quot;: \&quot;Updated Goal\&quot;,\n    \&quot;text\&quot;: \&quot;ut\&quot;,\n    \&quot;id\&quot;: \&quot;${GoalID}\&quot;,\n    \&quot;languageId\&quot;: 1,\n    \&quot;numberOfBooks\&quot;: 7\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>

@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;id\&quot;: \&quot;minim in\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;id\&quot;: \&quot;${GoalID}\&quot;\n\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -62,6 +62,13 @@
       <id>7f3cd75a-21c3-48b9-bb6b-2478b332359a</id>
       <masked>false</masked>
       <name>version</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.GoalID</defaultValue>
+      <description></description>
+      <id>ae0c6bb2-0899-42b7-856b-708123a5a644</id>
+      <masked>false</masked>
+      <name>GoalID</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
