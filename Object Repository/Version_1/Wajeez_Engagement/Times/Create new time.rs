@@ -10,11 +10,18 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;icon\&quot;: \&quot;cupidatat et labore\&quot;,\n    \&quot;timeProfiles\&quot;: [\n        {\n            \&quot;text\&quot;: \&quot;nulla et ad\&quot;,\n            \&quot;languageId\&quot;: -7603140\n        },\n        {\n            \&quot;text\&quot;: \&quot;minim consectetur\&quot;,\n            \&quot;languageId\&quot;: -4955130\n        }\n    ],\n    \&quot;timeType\&quot;: 1,\n    \&quot;slotDuration\&quot;: -51662432\n}&quot;,
-  &quot;contentType&quot;: &quot;application/json&quot;,
-  &quot;charset&quot;: &quot;UTF-8&quot;
+  &quot;contentType&quot;: &quot;multipart/form-data&quot;,
+  &quot;charset&quot;: &quot;UTF-8&quot;,
+  &quot;parameters&quot;: [
+    {
+      &quot;name&quot;: &quot;icon&quot;,
+      &quot;value&quot;: &quot;C:\\Users\\DELL\\Desktop\\MMS\\icon.svg&quot;,
+      &quot;type&quot;: &quot;File&quot;,
+      &quot;contentType&quot;: &quot;image/svg+xml&quot;
+    }
+  ]
 }</httpBodyContent>
-   <httpBodyType>text</httpBodyType>
+   <httpBodyType>form-data</httpBodyType>
    <httpHeaderProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
@@ -27,7 +34,7 @@
       <matchCondition>equals</matchCondition>
       <name>Content-Type</name>
       <type>Main</type>
-      <value>application/json</value>
+      <value>multipart/form-data</value>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
@@ -62,6 +69,13 @@
       <id>c29c9efa-3e9a-48e5-adb1-90c3e76c70db</id>
       <masked>false</masked>
       <name>version</name>
+   </variables>
+   <variables>
+      <defaultValue>findTestData(null).getValue(1, 1)</defaultValue>
+      <description></description>
+      <id>a9c6e2d4-a443-4944-b4dc-84e3477a90ed</id>
+      <masked>false</masked>
+      <name>Icon</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
