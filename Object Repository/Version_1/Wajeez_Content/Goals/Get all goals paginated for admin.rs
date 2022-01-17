@@ -54,7 +54,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${baseUrl}/api/content/v${version}/Goals/paginated?PageNumber=65291862&amp;PageSize=65291862</restUrl>
+   <restUrl>${baseUrl}/api/content/v${version}/Goals/paginated?PageNumber=1&amp;PageSize=1</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>

@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;contentItemIds\&quot;: [\n        \&quot;cupidatat in pariatur ut fugiat\&quot;,\n        \&quot;dolore voluptate aliquip\&quot;\n    ]\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;contentItemIds\&quot;: [\n        \&quot;${InterestFamily}\&quot;,\n      \&quot;${Interesthistory}\&quot;,\n      \&quot;${InterestCV}\&quot;,\n      \&quot;${InterestMoneyEco}\&quot;,\n      \&quot;${InterestSelfDev}\&quot;\n    ]\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -34,7 +34,7 @@
       <matchCondition>equals</matchCondition>
       <name>Authorization</name>
       <type>Main</type>
-      <value>Bearer ${token}</value>
+      <value>Bearer ${UserToken}</value>
    </httpHeaderProperties>
    <katalonVersion>8.2.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
@@ -62,6 +62,41 @@
       <id>44d0e314-fe30-4648-9a83-fae9594ded27</id>
       <masked>false</masked>
       <name>version</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.InterestSelfDev</defaultValue>
+      <description></description>
+      <id>373900f6-7f26-4332-a02e-2a537ca41fd1</id>
+      <masked>false</masked>
+      <name>InterestSelfDev</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.InterestMoneyEco</defaultValue>
+      <description></description>
+      <id>d46da584-171b-4741-a2b3-4ed6a9e3908f</id>
+      <masked>false</masked>
+      <name>InterestMoneyEco</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.InterestCV</defaultValue>
+      <description></description>
+      <id>3eb6ba16-5d07-454b-bcc0-2be610dadba6</id>
+      <masked>false</masked>
+      <name>InterestCV</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.Interesthistory</defaultValue>
+      <description></description>
+      <id>9264c6bf-efb6-4c11-8996-59f21ccb0b89</id>
+      <masked>false</masked>
+      <name>Interesthistory</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.InterestFamily</defaultValue>
+      <description></description>
+      <id>441dcbbb-f138-4bf6-b3f0-c26d37d78f86</id>
+      <masked>false</masked>
+      <name>InterestFamily</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

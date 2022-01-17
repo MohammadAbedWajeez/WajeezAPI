@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Get user Interests</name>
+   <name>Get all goals paginated for user</name>
    <tag></tag>
-   <elementGuidId>9dc08998-1871-4148-9be1-fba29b31607c</elementGuidId>
+   <elementGuidId>c31a6508-7726-4536-9252-3e0a5e22e8b8</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>-1</connectionTimeout>
@@ -20,7 +20,7 @@
       <matchCondition>equals</matchCondition>
       <name>Content-Type</name>
       <type>Main</type>
-      <value>application/json</value>
+      <value>text/plain</value>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>false</isSelected>
@@ -28,6 +28,20 @@
       <name>Accept-Language</name>
       <type>Main</type>
       <value>en</value>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>x-app-language-id</name>
+      <type>Main</type>
+      <value>consequat veniam aliqua</value>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>x-app-theme-mode</name>
+      <type>Main</type>
+      <value>Dark</value>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
@@ -40,7 +54,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${baseUrl}/api/content/v${version}/Interests/reader</restUrl>
+   <restUrl>${baseUrl}/api/content/v${version}/Goals/paginated?PageNumber=1&amp;PageSize=1</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -52,14 +66,14 @@
    <variables>
       <defaultValue>GlobalVariable.baseUrl</defaultValue>
       <description></description>
-      <id>7c625937-77f2-4b4d-8a6c-03619a68a925</id>
+      <id>31aec708-7955-47d5-aafe-f0dcfe65bf37</id>
       <masked>false</masked>
       <name>baseUrl</name>
    </variables>
    <variables>
       <defaultValue>GlobalVariable.version</defaultValue>
       <description></description>
-      <id>545bc0f7-d577-43f1-9988-ddd5aa95d1a8</id>
+      <id>b30d4d7b-f401-4f8b-ad04-3b29aafdc65d</id>
       <masked>false</masked>
       <name>version</name>
    </variables>
