@@ -29,6 +29,7 @@ def AuthenticateUsingEmailAndPasswordresult = AuthenticateUsingEmailAndPasswords
 def Token = AuthenticateUsingEmailAndPasswordresult.data.token
 
 GlobalVariable.token = Token
+WS.verifyResponseStatusCode(AuthenticateUsingEmailAndPassword, 200)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 UploadIcon = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_MMS/Upload new icon', [('baseUrl') : GlobalVariable.baseUrl

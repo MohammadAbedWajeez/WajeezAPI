@@ -131,7 +131,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>''</initValue>
+      <initValue>1</initValue>
       <name>LanguageID</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -383,5 +383,20 @@
       <description></description>
       <initValue>''</initValue>
       <name>InterestReligion</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>NotifTypeName</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>0</initValue>
+      <name>NotiftypeID</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>0</initValue>
+      <name>NotiftypeIDUpdated</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

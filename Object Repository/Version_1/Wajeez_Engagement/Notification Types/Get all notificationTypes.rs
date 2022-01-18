@@ -34,7 +34,7 @@
       <matchCondition>equals</matchCondition>
       <name>x-app-language-id</name>
       <type>Main</type>
-      <value>culpa sint Lorem ut</value>
+      <value>1</value>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>false</isSelected>
@@ -48,7 +48,7 @@
       <matchCondition>equals</matchCondition>
       <name>Authorization</name>
       <type>Main</type>
-      <value>Bearer ${token}</value>
+      <value>Bearer ${UserToken}</value>
    </httpHeaderProperties>
    <katalonVersion>8.2.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>

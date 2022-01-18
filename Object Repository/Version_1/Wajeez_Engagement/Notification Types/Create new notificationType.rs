@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;notificationTypeProfiles\&quot;: [\n        {\n            \&quot;text\&quot;: \&quot;exercitation cupidatat\&quot;,\n            \&quot;languageId\&quot;: -67952362\n        },\n        {\n            \&quot;text\&quot;: \&quot;nulla eu sed\&quot;,\n            \&quot;languageId\&quot;: 26009499\n        }\n    ],\n    \&quot;defaultState\&quot;: true,\n    \&quot;order\&quot;: 76826002\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;defaultState\&quot;: true,\n  \&quot;order\&quot;: 0,\n  \&quot;notificationTypeProfiles\&quot;: [\n    {\n      \&quot;languageId\&quot;: ${LanguageID},\n      \&quot;text\&quot;: \&quot;${NotifTypeName}\&quot;\n    }\n  ]\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -62,6 +62,20 @@
       <id>0cfcdc4d-7a91-4815-b1fa-42407ada031b</id>
       <masked>false</masked>
       <name>version</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.LanguageID</defaultValue>
+      <description></description>
+      <id>7477af30-f45b-458c-94b1-4641f18574c9</id>
+      <masked>false</masked>
+      <name>LanguageID</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.NotifTypeName</defaultValue>
+      <description></description>
+      <id>10468634-0e3e-434e-adb6-3a0135ac2674</id>
+      <masked>false</masked>
+      <name>NotifTypeName</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;text\&quot;: \&quot;occaecat commodo\&quot;,\n    \&quot;id\&quot;: 58291670,\n    \&quot;languageId\&quot;: -95879829,\n    \&quot;order\&quot;: -90719577,\n    \&quot;defaultState\&quot;: true\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;text\&quot;: \&quot;${NotifTypeName}\&quot;,\n    \&quot;id\&quot;: ${NotiftypeID},\n    \&quot;languageId\&quot;: ${LanguageID},\n    \&quot;order\&quot;: 0,\n    \&quot;defaultState\&quot;: true\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -62,6 +62,27 @@
       <id>c33273ff-3046-4676-9ef9-3b386ec48e06</id>
       <masked>false</masked>
       <name>version</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.LanguageID</defaultValue>
+      <description></description>
+      <id>e19e8b63-bccd-48c1-997b-2ffd0b4c4ea4</id>
+      <masked>false</masked>
+      <name>LanguageID</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.NotifTypeName</defaultValue>
+      <description></description>
+      <id>fe05b03e-3072-4805-b9c3-1509e6179581</id>
+      <masked>false</masked>
+      <name>NotifTypeName</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.NotiftypeID</defaultValue>
+      <description></description>
+      <id>997c7c8f-4e06-4316-a2a0-eacdaf260b1b</id>
+      <masked>false</masked>
+      <name>NotiftypeID</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

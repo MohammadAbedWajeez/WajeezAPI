@@ -34,7 +34,7 @@
       <matchCondition>equals</matchCondition>
       <name>x-app-language-id</name>
       <type>Main</type>
-      <value>culpa sint Lorem ut</value>
+      <value>${LanguageID}</value>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>false</isSelected>
@@ -54,7 +54,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${baseUrl}/api/engagement/v${version}/NotificationTypes/:id</restUrl>
+   <restUrl>${baseUrl}/api/engagement/v${version}/NotificationTypes/${NotiftypeIDUpdated}</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -76,6 +76,13 @@
       <id>e7b05e54-cf6d-41a2-9847-7c431a14013f</id>
       <masked>false</masked>
       <name>version</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.NotiftypeIDUpdated</defaultValue>
+      <description></description>
+      <id>18fc92bc-ebb4-4fa5-b8dc-820417c06683</id>
+      <masked>false</masked>
+      <name>NotiftypeIDUpdated</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

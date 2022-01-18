@@ -54,7 +54,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${baseUrl}/api/engagement/v${version}/NotificationTypes/paginated?PageNumber=89051950&amp;PageSize=89051950</restUrl>
+   <restUrl>${baseUrl}/api/engagement/v${version}/NotificationTypes/paginated?PageNumber=1&amp;PageSize=1</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>

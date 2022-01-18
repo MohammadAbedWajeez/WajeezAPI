@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;receiverNotificationTypeIds\&quot;: [\n        -31316591,\n        -50706556\n    ]\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;receiverNotificationTypeIds\&quot;: [\n      ${NotiftypeIDUpdated}\n      \n    ]\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -34,7 +34,7 @@
       <matchCondition>equals</matchCondition>
       <name>Authorization</name>
       <type>Main</type>
-      <value>Bearer ${token}</value>
+      <value>Bearer ${UserToken}</value>
    </httpHeaderProperties>
    <katalonVersion>8.2.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
@@ -62,6 +62,13 @@
       <id>a93308a3-09bd-48f3-ac05-4a35ccb317b3</id>
       <masked>false</masked>
       <name>version</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.NotiftypeIDUpdated</defaultValue>
+      <description></description>
+      <id>0c21a0cc-2aa6-4cbe-bfc2-b45deef4a02e</id>
+      <masked>false</masked>
+      <name>NotiftypeIDUpdated</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
