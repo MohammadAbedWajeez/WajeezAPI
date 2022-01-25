@@ -101,4 +101,10 @@
       <isRun>true</isRun>
       <testCaseId>Test Cases/SoftDeletionByUserID</testCaseId>
    </testCaseLink>
+   <testCaseLink>
+      <guid>89aa2db1-655d-40f9-90df-e9099bf1ae18</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/CompleteNotificationType</testCaseId>
+   </testCaseLink>
 </TestSuiteEntity>
