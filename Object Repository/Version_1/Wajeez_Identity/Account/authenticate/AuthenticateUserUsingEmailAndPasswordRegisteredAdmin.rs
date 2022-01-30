@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Create admin using email and password</name>
+   <name>AuthenticateUserUsingEmailAndPasswordRegisteredAdmin</name>
    <tag></tag>
-   <elementGuidId>c6c61d52-f713-40ae-be32-c603049c70ae</elementGuidId>
+   <elementGuidId>44d0adc3-7631-4d0d-9f6c-12a6383451a1</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>-1</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n \&quot;email\&quot;: \&quot;${RandomSuperEmail}\&quot;,\n \&quot;name\&quot;: \&quot;${randomFirstName}\&quot;,\n \&quot;password\&quot;: \&quot;${RandomSuperPw}\&quot;,\n \&quot;isVerified\&quot;: true\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;email\&quot;: \&quot;${RandomSuperEmail}\&quot;,\n    \&quot;password\&quot;:\&quot;${RandomSuperPw}\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -40,7 +40,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>${baseUrl}/api/identity/v${version}/Account/create-admin</restUrl>
+   <restUrl>${baseUrl}/api/identity/v${version}/Account/authenticate</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -52,35 +52,28 @@
    <variables>
       <defaultValue>GlobalVariable.baseUrl</defaultValue>
       <description></description>
-      <id>c6d2bb7c-402a-491a-81f5-11b7f28b486e</id>
+      <id>07212b7f-059b-48ca-b2b8-ae04d0ce1ba3</id>
       <masked>false</masked>
       <name>baseUrl</name>
    </variables>
    <variables>
       <defaultValue>GlobalVariable.version</defaultValue>
       <description></description>
-      <id>db5c4e74-7230-4c1a-bfa8-8daf27d4fb25</id>
+      <id>14e31be1-c0d4-49e1-8413-a98e00730727</id>
       <masked>false</masked>
       <name>version</name>
    </variables>
    <variables>
       <defaultValue>GlobalVariable.RandomSuperEmail</defaultValue>
       <description></description>
-      <id>7da73ee2-4377-4a89-8e23-c9dc6f297e08</id>
+      <id>c3971651-d274-473b-90d9-d969bab1e061</id>
       <masked>false</masked>
       <name>RandomSuperEmail</name>
    </variables>
    <variables>
-      <defaultValue>GlobalVariable.randomFirstName</defaultValue>
-      <description></description>
-      <id>6fd8927c-71a9-4f94-8390-4801f987f52b</id>
-      <masked>false</masked>
-      <name>randomFirstName</name>
-   </variables>
-   <variables>
       <defaultValue>GlobalVariable.RandomSuperPw</defaultValue>
       <description></description>
-      <id>a4072eae-cc9b-4c80-8551-80de74cbbc35</id>
+      <id>07e9f738-5457-4239-81de-fb760b755f9b</id>
       <masked>false</masked>
       <name>RandomSuperPw</name>
    </variables>

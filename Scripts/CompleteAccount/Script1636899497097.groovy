@@ -76,7 +76,7 @@ println(CheckEmailValidityAndExistenceEmailExistResult)
 WS.verifyResponseStatusCode(CheckEmailValidityAndExistenceEmailExist, 400)
 
 /////////////////////////////////////////////////////////////////////////////////////////
-RandomSuperEmail = (('wajeezTest' + ((Math.random() * 900) as int)) + '@wajeez.co')
+RandomSuperEmail = (('wajeezNewAdmin' + ((Math.random() * 900) as int)) + '@wajeez.co')
 
 GlobalVariable.RandomSuperEmail = RandomSuperEmail
 
