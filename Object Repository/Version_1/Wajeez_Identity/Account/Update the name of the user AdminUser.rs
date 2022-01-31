@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;name\&quot;: \&quot;UpdatedAdminName\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;name\&quot;: \&quot;${UpdatedAdminName}\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;text/plain&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -62,6 +62,13 @@
       <id>2351526d-1ee7-4a9c-8701-d771a06af652</id>
       <masked>false</masked>
       <name>version</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.UpdatedAdminName</defaultValue>
+      <description></description>
+      <id>5bcb25ff-da33-4b63-bdc7-348545859773</id>
+      <masked>false</masked>
+      <name>UpdatedAdminName</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

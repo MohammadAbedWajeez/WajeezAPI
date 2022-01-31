@@ -83,7 +83,7 @@ WS.verifyResponseStatusCode(GetUserDetails, 200)
 
 def UpdatedAdminName = ('NewAdminName' + ((Math.random() * 1000) as int))
 GlobalVariable.UpdatedAdminName = UpdatedAdminName
-
+println(UpdatedAdminName)
 UpdateUserNameAdmin = WS.sendRequestAndVerify(findTestObject('Version_1/Wajeez_Identity/Account/Update the name of the user AdminUser', 
         [('baseUrl') : GlobalVariable.baseUrl, ('version') : GlobalVariable.version, ('UserToken') : GlobalVariable.UserToken, ('UpdatedAdminName') : GlobalVariable.UpdatedAdminName]))
 
@@ -97,5 +97,5 @@ println(UpdatedName)
 
 GlobalVariable.UpdatedName = UpdatedName
 
-//assert assertThat(UpdatedName).isEqualTo(UpdatedAdminName)
+assertThat(UpdatedName).isEqualTo(UpdatedAdminName)
 WS.verifyResponseStatusCode(UpdateUserNameAdmin, 200)
